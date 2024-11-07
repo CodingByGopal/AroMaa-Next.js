@@ -1,6 +1,7 @@
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { RecipesService } from "@/services/recipes.service";
+import Link from "next/link";
 
 export default async function Home() {
   const data = await RecipesService.getAllRecipes();
@@ -15,9 +16,9 @@ export default async function Home() {
         name: string;
       }) => {
         return (
-          <div className=" text-white" key={recipe.id}>
+          <Link href={`/recipe/${recipe.id}`} key={recipe.id}>
             <h2>{recipe.name}</h2>
-          </div>
+          </Link>
         );
       })}
     </div>

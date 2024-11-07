@@ -6,7 +6,7 @@ export class RecipesService extends BaseService {
         return this.fetchData(this.baseUrl);
     }
 
-    static getRecipeById(id: number) {
+    static getRecipeById(id: string) {
         return this.fetchData(`${this.baseUrl}/${id}`);
     }
 
