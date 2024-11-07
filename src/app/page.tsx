@@ -4,7 +4,6 @@ import { RecipesService } from "@/services/recipes.service";
 
 export default async function Home() {
   const data = await RecipesService.getAllRecipes();
-  console.log(data);
   return (
     <div>
       Test
