@@ -22,5 +22,5 @@
 }
 
 .bottom-line {
-    @apply relative before:absolute before:-bottom-[4px] before:rounded-3xl before:left-0 before:w-full before:h-[2.5px] before:bg-primary
+    @apply relative before:absolute before:-bottom-[4px] before:rounded-3xl before:left-0 before:w-full before:h-[3px] before:bg-primary
 }

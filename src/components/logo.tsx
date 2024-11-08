@@ -12,7 +12,7 @@ const Logo = () => {
 
             <p className=" md:text-3xl text-xl font-bold 
          flex items-center">
-                Ar<Torus className=" mt-1 mx-0.5 font-bold" />Maa
+                Ar<Torus className=" text-primary mt-1 mx-0.5 font-bold" />Maa
             </p>
 
             <span className=' sr-only'>Aromaa Logo</span>

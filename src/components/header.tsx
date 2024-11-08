@@ -36,9 +36,9 @@ const Header = () => {
                 <div className=" flex  justify-between items-center gap-5  py-3">
 
 
-                    <div className=" flex items-center md:gap-12">
+                    <div className=" flex items-center gap-6">
                         <Logo />
-                        <nav className="left-line pl-6 hidden md:flex items-center gap-3 font-semibold text-base">
+                        <nav className=" border-l-2 border-border pl-6 hidden md:flex items-center gap-3 font-semibold text-base">
                             {navigationOptions.map((navOption, index) => (
                                 <Link className={`${pathname === navOption?.path ? 'bottom-line' : " "}    duration-300 transition-all `} href={navOption?.path} key={index}>
                                     {navOption?.label}
@@ -50,7 +50,7 @@ const Header = () => {
                         </nav>
                     </div>
                     <div className=" md:flex hidden items-center gap-3">
-                        <Link className={`${buttonVariants({ variant: "outline", size: "icon" })} `} href='/search'>
+                        <Link className={`${buttonVariants({ variant: "secondary", size: "icon" })} `} href='/search'>
 
                             <Search />
                             <span className="sr-only">Search Recipe</span>
@@ -63,7 +63,7 @@ const Header = () => {
 
                     <div className=" md:hidden  block">
                         <MobileMenu pathName={pathname} navigationOptions={navigationOptions} >
-                            <Button variant='outline' size='icon'>
+                            <Button variant='secondary' size='icon'>
                                 <Text className=" !w-5 !h-5" />
                                 <span className="sr-only">Mobile Menu Button</span>
                             </Button>
