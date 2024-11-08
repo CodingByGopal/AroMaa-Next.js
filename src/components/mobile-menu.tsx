@@ -19,7 +19,7 @@ const MobileMenu = (props: {
     navigationOptions: NavigationOptionsModel[],
     pathName: string
 }) => {
-    const [open, setOpen] = useState<boolean>(true);
+    const [open, setOpen] = useState<boolean>(false);
     const newNav = [...props.navigationOptions, { label: 'Search', path: '/search', icon: <Search /> }]
     return (
         <Sheet open={open} onOpenChange={setOpen} >
