@@ -1,0 +1,15 @@
+/* body {
+    overflow-x: hidden;
+}
+
+#body {
+    margin-right: 0px !important;
+
+} */
+
+
+::selection,
+::-moz-selection {
+    color: hsl(var(--primary-foreground));
+    background: hsl(var(--primary));
+}
