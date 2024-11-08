@@ -38,9 +38,9 @@ const Header = () => {
 
                     <div className=" flex items-center md:gap-12">
                         <Logo />
-                        <nav className="left-line pl-4 hidden md:flex items-center  font-semibold text-base">
+                        <nav className="left-line pl-6 hidden md:flex items-center gap-3 font-semibold text-base">
                             {navigationOptions.map((navOption, index) => (
-                                <Link className={`${pathname === navOption?.path ? ' bg-primary text-white' : ""} px-4 py-1  duration-300 transition-all relative`} href={navOption?.path} key={index}>
+                                <Link className={`${pathname === navOption?.path ? 'bottom-line' : " "}    duration-300 transition-all `} href={navOption?.path} key={index}>
                                     {navOption?.label}
                                 </Link>
                             ))}

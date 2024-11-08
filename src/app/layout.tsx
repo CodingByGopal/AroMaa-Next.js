@@ -28,7 +28,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main>
+          <main className=" md:mt-20 mt-16">
             {children}
           </main>
 
