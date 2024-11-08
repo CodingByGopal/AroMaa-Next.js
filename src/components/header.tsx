@@ -5,18 +5,21 @@ import { usePathname } from "next/navigation";
 import Logo from "./logo";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
-import { buttonVariants } from "./ui/button";
-import { Search } from "lucide-react";
+import { Button, buttonVariants } from "./ui/button";
+import { Book, Home, Search, Text } from "lucide-react";
+import MobileMenu from "./mobile-menu";
 
 const navigationOptions: NavigationOptionsModel[] = [
     {
         label: 'Home',
         path: '/',
+        icon: <Home />
     },
 
     {
         label: 'Recipes',
-        path: '/recipes'
+        path: '/recipes',
+        icon: <Book />
     },
 
 
@@ -30,10 +33,12 @@ const Header = () => {
         <header className='fixed top-0 left-0 w-full  bg-background  border-b border-border   z-50'>
 
             <section className=' container '>
-                <div className=" flex  justify-between items-center gap-5  py-2.5">
-                    <div className=" flex items-center gap-12">
+                <div className=" flex  justify-between items-center gap-5  py-3">
+
+
+                    <div className=" flex items-center md:gap-12">
                         <Logo />
-                        <nav className="left-line pl-4 flex items-center gap-4 font-semibold text-base">
+                        <nav className="left-line pl-4 hidden md:flex items-center  font-semibold text-base">
                             {navigationOptions.map((navOption, index) => (
                                 <Link className={`${pathname === navOption?.path ? ' bg-primary text-white' : ""} px-4 py-1  duration-300 transition-all relative`} href={navOption?.path} key={index}>
                                     {navOption?.label}
@@ -44,13 +49,26 @@ const Header = () => {
 
                         </nav>
                     </div>
-                    <div className="  flex items-center gap-3">
-                        <Link className={`${buttonVariants({ variant: "outline", size: "icon" })}`} href='/search'>
+                    <div className=" md:flex hidden items-center gap-3">
+                        <Link className={`${buttonVariants({ variant: "outline", size: "icon" })} `} href='/search'>
 
                             <Search />
                             <span className="sr-only">Search Recipe</span>
                         </Link>
-                        <ThemeToggle />
+                        <div >
+                            <ThemeToggle />
+                        </div>
+
+                    </div>
+
+                    <div className=" md:hidden  block">
+                        <MobileMenu pathName={pathname} navigationOptions={navigationOptions} >
+                            <Button variant='outline' size='icon'>
+                                <Text className=" !w-5 !h-5" />
+                                <span className="sr-only">Mobile Menu Button</span>
+                            </Button>
+                        </MobileMenu>
+
                     </div>
 
                 </div>
