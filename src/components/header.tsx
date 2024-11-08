@@ -2,10 +2,11 @@
 
 import { NavigationOptionsModel } from "@/data/_model/navigation.options.model";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
 import Logo from "./logo";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
+import { buttonVariants } from "./ui/button";
+import { Search } from "lucide-react";
 
 const navigationOptions: NavigationOptionsModel[] = [
     {
@@ -23,39 +24,16 @@ const navigationOptions: NavigationOptionsModel[] = [
 ];
 const Header = () => {
     const pathname = usePathname();
-    const [addNavColor, setAddNavColor] = useState<boolean>(false);
-    const changeBackground = () => {
-        if (window.scrollY >= 50) {
-            setAddNavColor(true);
-        } else {
-            setAddNavColor(false);
-        }
-    };
 
-    useEffect(() => {
-        changeBackground();
-    }, [])
-
-    useEffect(() => {
-
-        window.addEventListener('scroll', changeBackground);
-
-        return () => {
-            window.removeEventListener('scroll', changeBackground);
-        };
-    }, []);
 
     return (
-        <header className={` fixed top-0 left-0 w-full   z-50 ${addNavColor
-            ? " bg-background shadow-2xl  transition-all duration-150 border-b border-border "
-            : ""
-            }`}>
+        <header className='fixed top-0 left-0 w-full  bg-background  border-b border-border   z-50'>
 
             <section className=' container '>
                 <div className=" flex  justify-between items-center gap-5  py-2.5">
-                    <div className=" flex items-center gap-16">
+                    <div className=" flex items-center gap-12">
                         <Logo />
-                        <nav className=" border-l-2 border-primary pl-4 flex items-center gap-4 font-semibold text-base">
+                        <nav className="left-line pl-4 flex items-center gap-4 font-semibold text-base">
                             {navigationOptions.map((navOption, index) => (
                                 <Link className={`${pathname === navOption?.path ? ' bg-primary text-white' : ""} px-4 py-1  duration-300 transition-all relative`} href={navOption?.path} key={index}>
                                     {navOption?.label}
@@ -66,8 +44,15 @@ const Header = () => {
 
                         </nav>
                     </div>
+                    <div className="  flex items-center gap-3">
+                        <Link className={`${buttonVariants({ variant: "outline", size: "icon" })}`} href='/search'>
 
-                    <ThemeToggle />
+                            <Search />
+                            <span className="sr-only">Search Recipe</span>
+                        </Link>
+                        <ThemeToggle />
+                    </div>
+
                 </div>
 
             </section>

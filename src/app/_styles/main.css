@@ -13,3 +13,7 @@
     color: hsl(var(--primary-foreground));
     background: hsl(var(--primary));
 }
+
+.left-line {
+    @apply relative before:bg-primary before:h-full before:rounded-3xl before:w-[3px] before:top-0 before:left-0 before:right-0 before:bottom-0 before:absolute;
+}
