@@ -3,7 +3,8 @@ import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import SectionTitle from "./section-title";
 const TagList = async () => {
-    const data: string[] = await RecipesService.getTags();
+    const tagsArray: string[] = await RecipesService.getTags();
+    const data = tagsArray.slice(0, 20);
     return (
         <section className="md:pt-14 pt-8">
             <div className="container">
@@ -12,7 +13,7 @@ const TagList = async () => {
                 </div>
                 <div className=" flex flex-wrap gap-2">
                     {data.map(tag => <Link
-                        className={`${buttonVariants({ variant: "secondary", })} hover:bg-primary hover:text-white hover:border-primary `}
+                        className={`${buttonVariants({ variant: "secondary", })} hover:!bg-primary hover:text-white hover:border-primary `}
                         href={`/tags/${tag}`} key={tag}>
                         {tag}
                     </Link>)}

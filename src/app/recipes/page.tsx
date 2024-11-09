@@ -26,6 +26,12 @@ const Recipes = async () => {
                         </React.Fragment>
                     ))}
                 </div>
+                <div className=' mt-8 flex justify-end items-end'>
+                    <div>
+                    </div>
+
+                </div>
+
             </div>
         </section>
     )

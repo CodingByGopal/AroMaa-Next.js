@@ -14,8 +14,8 @@ export default async function Home() {
       {foodTags?.map((tag) =>
         <FoodByTags key={tag} tag={tag} />
       )}
-
       <TagList />
+
     </>
   );
 }
