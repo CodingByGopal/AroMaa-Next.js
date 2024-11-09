@@ -7,6 +7,7 @@ const CustomImg = (props: { src: string; alt: string }) => {
 
     return (
         <Image
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             src={hasError ? '/image-placeholder.svg' : props?.src}
             alt={props?.alt}
             fill
