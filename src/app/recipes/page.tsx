@@ -1,18 +1,27 @@
 import RecipeCard from '@/components/recipe-card';
 import SectionTitle from '@/components/section-title';
-import { SimplePagination } from '@/components/simple-pagination';
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
 import { RecipesService } from '@/services/recipes.service'
 import React from 'react'
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 
-const Recipes = async () => {
+const Recipes = async (props: {
+    searchParams: SearchParams
+}) => {
+    const searchParams = await props?.searchParams;
+    console.log(searchParams)
     const obj = {
         limit: 12,
         select: "name,image",
+
     }
     const data: RecipeResponseModel = await RecipesService.getAllRecipes(obj);
-    const recipes = data.recipes;
-    console.log(recipes)
+    console.log(data)
+
+    const recipes = data?.recipes;
+    const totalPages = Math.ceil(data?.total / obj?.limit);
+    const currentPage = 1;
+    console.log(totalPages, currentPage)
     return (
         <section className='pt-8  '>
             <div className="container">
@@ -29,7 +38,7 @@ const Recipes = async () => {
                 </div>
                 <div className=' mt-8 flex justify-end items-end'>
                     <div>
-                        <SimplePagination />
+
                     </div>
 
                 </div>
