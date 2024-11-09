@@ -14,7 +14,6 @@ const TrendingRecipes = async () => {
     }
     const data: RecipeResponseModel = await RecipesService.getAllRecipes(params);
     const recipes = data?.recipes;
-    console.log(recipes)
     if (!recipes || recipes?.length === 0) return null;
     return (
         <SectionUi recipes={recipes} title='Trending' />

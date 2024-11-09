@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-provider";
 import Header from "@/components/header";
 import { Josefin_Sans } from 'next/font/google'
+import Footer from "@/components/footer";
 
 const josefinSans = Josefin_Sans({ subsets: ['latin'] })
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function RootLayout({
           <main className=" md:mt-20 mt-16">
             {children}
           </main>
+          <Footer />
 
         </ThemeProvider>
       </body>
