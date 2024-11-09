@@ -1,5 +1,5 @@
+import FoodByTags from "@/components/food-by-tags";
 import Hero from "@/components/hero";
-import IndianRecipes from "@/components/indian-recipes";
 import TrendingRecipes from "@/components/trending-recipes";
 
 
@@ -8,7 +8,10 @@ export default async function Home() {
     <>
       <Hero />
       <TrendingRecipes />
-      <IndianRecipes />
+      <FoodByTags tag='Indian' title='Indian Recipes' />
+      <FoodByTags tag='Italian' title='Italian Recipes' />
+      <FoodByTags tag='Main course' title='Main course' />
+
     </>
   );
 }
