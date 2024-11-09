@@ -15,7 +15,7 @@ const TagList = async () => {
                 <div className=" flex flex-wrap gap-2">
                     {data.map(tag => <Link
                         className={`${buttonVariants({ variant: "secondary", })} hover:!bg-primary hover:text-white hover:border-primary `}
-                        href={`/tags/${tag}`} key={tag}>
+                        href={`/categories/${tag}`} key={tag}>
                         {tag}
                     </Link>)}
 
