@@ -13,6 +13,7 @@ const Recipes = async (props: {
     console.log(searchParams)
     const obj = {
         limit: 12,
+        skip: (searchParams.p && Number(searchParams.p) > 0 ? (Number(searchParams.p) - 1) * 12 : 0),
         select: "name,image",
 
     }
@@ -21,7 +22,9 @@ const Recipes = async (props: {
     const recipes = data?.recipes;
     const totalPages = Math.ceil(data?.total / obj?.limit);
 
-    const currentPage = searchParams.page && Number(searchParams.page) > 0 ? Math.min(Number(searchParams.page), totalPages) : 1;
+    const currentPage = searchParams.p && Number(searchParams.p) > 0 ? Math.min(Number(searchParams.p), totalPages) : 1;
+
+
     return (
         <section className='pt-8  '>
             <div className="container">
@@ -39,7 +42,7 @@ const Recipes = async (props: {
                 <div className=' mt-8 flex justify-end items-end'>
                     <div>
 
-                        <Pagination currentPage={currentPage} totalPages={totalPages} />
+                        <Pagination totalSize={data?.total} currentPage={currentPage} totalPages={totalPages} />
 
                     </div>
 
