@@ -12,7 +12,6 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 interface PaginationPropsType {
     currentPage: number;
     totalPages: number;
-    totalSize: number;
 }
 
 const Pagination = (props: PaginationPropsType) => {
@@ -51,7 +50,6 @@ const Pagination = (props: PaginationPropsType) => {
     const updatePageInURL = (pageNum: number) => {
         const params = new URLSearchParams(searchParams);
         params.set('p', pageNum?.toString());
-        params.set("t", props?.totalSize?.toString());
         router.push(`${pathname}?${params.toString()}`)
     }
 
