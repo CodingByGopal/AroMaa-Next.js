@@ -1,11 +1,3 @@
-/* body {
-    overflow-x: hidden;
-}
-
-#body {
-    margin-right: 0px !important;
-
-} */
 ::selection {
     color: hsl(var(--primary-foreground));
     background: hsl(var(--primary));
@@ -17,10 +9,26 @@
     background: hsl(var(--primary));
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .left-line {
     @apply relative before:bg-primary before:h-full before:rounded-3xl before:w-[4px] before:top-0 before:left-0 before:right-0 before:bottom-0 before:absolute;
 }
 
 .bottom-line {
     @apply relative before:absolute before:-bottom-[4px] before:rounded-3xl before:left-0 before:w-full before:h-[3px] before:bg-primary
+}
+
+.no-data {
+    @apply flex dark:bg-secondary/20 bg-secondary justify-center border border-secondary items-center h-96 flex-col p-8 rounded-3xl;
+
 }

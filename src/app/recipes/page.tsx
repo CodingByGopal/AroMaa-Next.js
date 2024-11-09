@@ -1,3 +1,4 @@
+import NoData from '@/components/no-data';
 import Pagination from '@/components/pagination';
 import RecipeCard from '@/components/recipe-card';
 import SectionTitle from '@/components/section-title';
@@ -24,7 +25,7 @@ const Recipes = async (props: {
     }
     const data: RecipeResponseModel = await RecipesService.getAllRecipes(obj);
 
-    const recipes = data?.recipes;
+    const recipes = data?.recipes ?? [];
 
     const totalPages = Math.ceil(data?.total / itemsPerPage);
 
@@ -38,21 +39,23 @@ const Recipes = async (props: {
                 <div className=' mb-4'>
                     <SectionTitle title='Recipes' />
                 </div>
-                <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
-                    {recipes?.map((recipe) => (
-                        <React.Fragment key={recipe.id} >
-                            <RecipeCard recipe={recipe} />
-                        </React.Fragment>
-                    ))}
-                </div>
-                <div className=' mt-8 flex justify-end items-end'>
-                    <div>
+                {recipes?.length === 0 ?
+                    <NoData message='No Recipes Found' /> :
+                    <>
+                        <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
+                            {recipes?.map((recipe) => (
+                                <React.Fragment key={recipe.id} >
+                                    <RecipeCard recipe={recipe} />
+                                </React.Fragment>
+                            ))}
+                        </div>
+                        <div className=' mt-8'>
+                            <Pagination currentPage={currentPage} totalPages={totalPages} />
+                        </div>
 
-                        <Pagination currentPage={currentPage} totalPages={totalPages} />
+                    </>
+                }
 
-                    </div>
-
-                </div>
 
             </div>
         </section>

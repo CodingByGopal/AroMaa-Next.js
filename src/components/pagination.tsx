@@ -91,11 +91,12 @@ const Pagination = (props: PaginationPropsType) => {
     }, [props?.currentPage])
 
     return (
-        <div className="flex items-center  md:justify-end justify-center  md:gap-3 gap-2">
+        <div className="flex flex-wrap items-center  md:justify-end justify-center  md:gap-3 gap-2">
             <Button
                 aria-label='Pagination button to navigate to first page'
                 size='icon'
-                variant="outline"
+                variant="secondary"
+                className=' flex-none'
                 disabled={props.currentPage === 1}
                 onClick={() => pageChangeByNavigation('JUMP_TO_FIRST')}
             >
@@ -106,7 +107,8 @@ const Pagination = (props: PaginationPropsType) => {
             <Button
                 aria-label='Pagination button to navigate to previous page'
                 size='icon'
-                variant="outline"
+                variant="secondary"
+                className=' flex-none'
                 disabled={props.currentPage === 1}
                 onClick={() => pageChangeByNavigation('PREV')}
             >
@@ -116,10 +118,11 @@ const Pagination = (props: PaginationPropsType) => {
                 <label htmlFor='page'>Page</label>
                 <Input
                     id='page'
-                    className="w-16 px-2 py-1 text-center border  rounded-md"
+                    className="sm:w-16 w-12 text-center  bg-secondary  border-0 flex-none  "
                     value={pageNumber}
                     min={1}
                     type="number"
+
                     onKeyDown={onkeydownHandler}
                     onChange={inputOnChangeHandler}
                 />
@@ -128,7 +131,8 @@ const Pagination = (props: PaginationPropsType) => {
             <Button
                 aria-label='Pagination button to navigate to next page'
                 size='icon'
-                variant="outline"
+                variant="secondary"
+                className=' flex-none'
                 disabled={props.currentPage >= props.totalPages}
                 onClick={() => pageChangeByNavigation('NEXT')}
             >
@@ -137,7 +141,8 @@ const Pagination = (props: PaginationPropsType) => {
             <Button
                 aria-label='Pagination button to navigate to last page'
                 size='icon'
-                variant="outline"
+                variant="secondary"
+                className=' flex-none'
                 disabled={props.currentPage >= props.totalPages}
                 onClick={() => pageChangeByNavigation('JUMP_TO_LAST')}
             >
