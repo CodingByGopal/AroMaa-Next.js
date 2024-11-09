@@ -11,11 +11,11 @@ const SectionUi = (props: {
             <div className="container">
                 <h2 className='left-line pl-4 text-2xl leading-none font-semibold  mb-8'>{props?.title}</h2>
 
-                <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
+                <div className="columns-2xs">
                     {props?.recipes?.map((recipe) => (
-                        <React.Fragment key={recipe.id} >
+                        <div className=' mb-5' key={recipe.id} >
                             <RecipeCard recipe={recipe} />
-                        </React.Fragment>
+                        </div>
                     ))}
                 </div>
             </div>
