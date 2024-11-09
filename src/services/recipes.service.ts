@@ -19,6 +19,9 @@ export class RecipesService extends BaseService {
     static getRecipesByTag(tag: string, params?: QueryParamsType) {
         return this.fetchData(`${this.baseUrl}/tag/${tag}`, params);
     }
+    static getTags(params?: QueryParamsType) {
+        return this.fetchData(`${this.baseUrl}/tags`, params);
+    }
 
     static getRecipesByMealType(mealType: string, params?: QueryParamsType) {
         return this.fetchData(`${this.baseUrl}/meal-type/${mealType}`, params);
