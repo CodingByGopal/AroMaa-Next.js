@@ -10,10 +10,11 @@ const Recipes = async (props: {
     searchParams: SearchParams
 }) => {
     const searchParams = await props?.searchParams;
+    const itemsPerPage = 12;
     console.log(searchParams)
     const obj = {
-        limit: 12,
-        skip: (searchParams.p && Number(searchParams.p) > 0 ? (Number(searchParams.p) - 1) * 12 : 0),
+        limit: itemsPerPage,
+        skip: (searchParams.p && Number(searchParams.p) > 0 ? (Number(searchParams.p) - 1) * itemsPerPage : 0),
         select: "name,image",
 
     }

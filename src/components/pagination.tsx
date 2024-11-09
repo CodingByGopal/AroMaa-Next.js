@@ -26,8 +26,8 @@ const Pagination = (props: PaginationPropsType) => {
         if (e.keyCode === 13) {
             if (pageNumber <= 0) {
                 toast({
-                    title: "Page number should be greater than 0",
-                    description: `Page number should be greater than 0`,
+                    title: "Page limit exceeded",
+                    description: `Page number should be 1 or more`,
                 })
 
                 setPageNumber(props.currentPage)
