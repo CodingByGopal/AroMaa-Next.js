@@ -4,7 +4,7 @@ import SectionUi from './section-ui';
 
 const FoodByTags = async (props: {
     tag: string,
-    title: string
+
 }) => {
     const params = {
         limit: 8,
@@ -14,10 +14,9 @@ const FoodByTags = async (props: {
     }
     const data: RecipeResponseModel = await RecipesService.getRecipesByTag(props?.tag, params);
     const recipes = data?.recipes;
-    console.log(recipes)
     if (!recipes || recipes?.length === 0) return null;
     return (
-        <SectionUi recipes={recipes} title={props?.title} />
+        <SectionUi recipes={recipes} title={props?.tag} />
     )
 }
 

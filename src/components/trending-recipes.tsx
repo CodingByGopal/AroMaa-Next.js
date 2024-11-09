@@ -6,7 +6,10 @@ import SectionUi from './section-ui';
 const TrendingRecipes = async () => {
     const params = {
         limit: 8,
-        select: 'name,image',
+        skip: 25,
+        sortBy: 'rating',
+        order: 'desc',
+        select: 'name,image,rating',
 
     }
     const data: RecipeResponseModel = await RecipesService.getAllRecipes(params);
@@ -14,7 +17,7 @@ const TrendingRecipes = async () => {
     console.log(recipes)
     if (!recipes || recipes?.length === 0) return null;
     return (
-        <SectionUi recipes={recipes} title='Trending Recipes' />
+        <SectionUi recipes={recipes} title='Trending' />
     )
 }
 
