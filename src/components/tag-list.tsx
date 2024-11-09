@@ -2,6 +2,7 @@ import { RecipesService } from "@/services/recipes.service"
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import SectionTitle from "./section-title";
+import { MoveRight } from "lucide-react";
 const TagList = async () => {
     const tagsArray: string[] = await RecipesService.getTags();
     const data = tagsArray.slice(0, 20);
@@ -17,6 +18,12 @@ const TagList = async () => {
                         href={`/tags/${tag}`} key={tag}>
                         {tag}
                     </Link>)}
+
+                    <Link
+                        className={`${buttonVariants({ variant: "default", })} `}
+                        href={`/categories`} >
+                        View All <MoveRight size={16} />
+                    </Link>
                 </div>
 
             </div>

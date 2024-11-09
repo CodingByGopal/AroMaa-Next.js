@@ -1,5 +1,6 @@
 import RecipeCard from '@/components/recipe-card';
 import SectionTitle from '@/components/section-title';
+import { SimplePagination } from '@/components/simple-pagination';
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
 import { RecipesService } from '@/services/recipes.service'
 import React from 'react'
@@ -28,6 +29,7 @@ const Recipes = async () => {
                 </div>
                 <div className=' mt-8 flex justify-end items-end'>
                     <div>
+                        <SimplePagination />
                     </div>
 
                 </div>

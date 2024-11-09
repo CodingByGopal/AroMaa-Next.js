@@ -6,7 +6,7 @@ import Logo from "./logo";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { Button, buttonVariants } from "./ui/button";
-import { Book, Home, Search, Text } from "lucide-react";
+import { Book, Home, Pizza, Search, Text } from "lucide-react";
 import MobileMenu from "./mobile-menu";
 
 const navigationOptions: NavigationOptionsModel[] = [
@@ -20,6 +20,11 @@ const navigationOptions: NavigationOptionsModel[] = [
         label: 'Recipes',
         path: '/recipes',
         icon: <Book />
+    },
+    {
+        label: 'Categories',
+        path: '/categories',
+        icon: <Pizza />
     },
 
 
@@ -38,7 +43,7 @@ const Header = () => {
 
                     <div className=" flex items-center gap-6">
                         <Logo />
-                        <nav className=" border-l-2 border-border pl-6 hidden md:flex items-center gap-3 font-semibold text-base">
+                        <nav className=" border-l-2 border-border pl-6 hidden md:flex items-center gap-5 font-semibold text-base">
                             {navigationOptions.map((navOption, index) => (
                                 <Link className={`${pathname === navOption?.path ? 'bottom-line' : " "}    duration-300 transition-all `} href={navOption?.path} key={index}>
                                     {navOption?.label}
