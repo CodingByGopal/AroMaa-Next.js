@@ -23,6 +23,15 @@ const Pagination = (props: PaginationPropsType) => {
     const [pageNumber, setPageNumber] = useState<number>(1);
     const onkeydownHandler = (e: { keyCode: number; }) => {
         if (e.keyCode === 13) {
+            if (pageNumber <= 0) {
+                toast({
+                    title: "Page number should be greater than 0",
+                    description: `Page number should be greater than 0`,
+                })
+
+                setPageNumber(props.currentPage)
+                return;
+            }
 
             if (pageNumber > props.totalPages) {
 
@@ -109,10 +118,8 @@ const Pagination = (props: PaginationPropsType) => {
                     id='page'
                     className="w-16 px-2 py-1 text-center border  rounded-md"
                     value={pageNumber}
-
+                    min={1}
                     type="number"
-
-
                     onKeyDown={onkeydownHandler}
                     onChange={inputOnChangeHandler}
                 />

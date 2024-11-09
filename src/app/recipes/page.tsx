@@ -1,3 +1,4 @@
+import Pagination from '@/components/pagination';
 import RecipeCard from '@/components/recipe-card';
 import SectionTitle from '@/components/section-title';
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
@@ -16,12 +17,11 @@ const Recipes = async (props: {
 
     }
     const data: RecipeResponseModel = await RecipesService.getAllRecipes(obj);
-    console.log(data)
 
     const recipes = data?.recipes;
     const totalPages = Math.ceil(data?.total / obj?.limit);
-    const currentPage = 1;
-    console.log(totalPages, currentPage)
+
+    const currentPage = searchParams.page && Number(searchParams.page) > 0 ? Math.min(Number(searchParams.page), totalPages) : 1;
     return (
         <section className='pt-8  '>
             <div className="container">
@@ -38,6 +38,8 @@ const Recipes = async (props: {
                 </div>
                 <div className=' mt-8 flex justify-end items-end'>
                     <div>
+
+                        <Pagination currentPage={currentPage} totalPages={totalPages} />
 
                     </div>
 

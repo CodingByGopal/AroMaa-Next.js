@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/contexts/theme-provider";
 import Header from "@/components/header";
 import { Josefin_Sans } from 'next/font/google'
 import Footer from "@/components/footer";
+import { Toaster } from "@/components/ui/toaster";
 
 const josefinSans = Josefin_Sans({ subsets: ['latin'] })
 export const metadata: Metadata = {
@@ -35,6 +36,7 @@ export default function RootLayout({
           <Footer />
 
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
