@@ -13,7 +13,7 @@ const Recipes = async () => {
     const recipes = data.recipes;
     console.log(recipes)
     return (
-        <section className='md:pt-14 pt-8 relative '>
+        <section className='pt-8  '>
             <div className="container">
                 <div className=' mb-4'>
                     <SectionTitle title='Recipes' />
