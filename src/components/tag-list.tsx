@@ -6,6 +6,7 @@ import { MoveRight } from "lucide-react";
 const TagList = async () => {
     const tagsArray: string[] = await RecipesService.getTags();
     const data = tagsArray.slice(0, 20);
+
     return (
         <section className="md:pt-14 pt-8">
             <div className="container">
