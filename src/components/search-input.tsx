@@ -21,9 +21,10 @@ const SearchInput = (props: {
     return (
         <form onSubmit={handleFormSubmit}>
             <Input
+                className=' w-full'
                 defaultValue={props?.defaultValue}
                 name='search'
-                placeholder='Type and hit enter'
+                placeholder='Type & Hit Enter'
             />
         </form>
     );

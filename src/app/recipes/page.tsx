@@ -3,10 +3,8 @@ import RecipeUi from '@/components/recipe-ui';
 import SearchInput from '@/components/search-input';
 import SectionTitle from '@/components/section-title';
 import SkeletonRecipes from '@/components/skeleton-recipes';
-import { buttonVariants } from '@/components/ui/button';
 import { SearchParamsType } from '@/data/_model/searchparams.type';
 import recipeFilters from '@/data/_static/recipe.filters';
-import Link from 'next/link';
 import React, { Suspense } from 'react'
 
 
@@ -23,15 +21,17 @@ const Recipes = async (props: {
                 <div className=' mb-8 flex gap-4 sm:flex-row flex-col justify-between sm:items-center'>
                     <SectionTitle title='Recipes' />
 
-                    <div className=' flex gap-4 items-center'>
-                        <SearchInput defaultValue={defaultValue} />
-                        <div className=' sm:min-w-36'>
+                    <div className='  flex sm:flex-row flex-col gap-4 sm:items-center'>
+                        <div className=' sm:min-w-52'>
+                            <SearchInput defaultValue={defaultValue} />
+                        </div>
+                        <div className=' sm:min-w-52'>
                             <CustomSelect
                                 defaultValue={selectedOption?.id}
                                 placeholder='Sort By'
                                 options={recipeFilters} />
                         </div>
-                        <Link className={`  !p-0 ${buttonVariants({ variant: "link", })}`} href='/recipes'>Reset</Link>
+
                     </div>
 
 

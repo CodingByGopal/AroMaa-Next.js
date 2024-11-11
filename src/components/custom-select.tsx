@@ -16,6 +16,14 @@ export function CustomSelect(props: CustomSelectType) {
     const searchParams = useSearchParams();
     const router = useRouter();
     const onChange = (id: string) => {
+        if (id === "ALL") {
+            const params = new URLSearchParams(searchParams);
+            params.delete('sortBy');
+            router.replace(`${pathname}?${params.toString()}`)
+            return;
+        }
+
+
         const filteredOption = props?.options?.filter(option => option?.id === id)[0];
         if (!filteredOption) return;
         const params = new URLSearchParams(searchParams);
@@ -32,6 +40,9 @@ export function CustomSelect(props: CustomSelectType) {
             </SelectTrigger>
             <SelectContent>
                 <SelectGroup>
+                    <SelectItem value="ALL">
+                        All
+                    </SelectItem>
                     {props?.options?.map((option, index) => (
                         <SelectItem key={index} value={option?.id}>
                             {option?.label}
