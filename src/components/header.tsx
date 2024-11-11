@@ -35,7 +35,7 @@ const Header = () => {
 
 
     return (
-        <header className='fixed top-0 left-0 w-full  bg-background  border-b border-border   z-50'>
+        <header className='fixed top-0 left-0 w-screen   bg-background  border-b border-border   z-50'>
 
             <section className=' container '>
                 <div className=" flex  justify-between items-center gap-5  py-3">

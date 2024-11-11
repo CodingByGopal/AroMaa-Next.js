@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.d {
-  background-color: hsl(0, 0%, 95%);
-}
+
 
 @layer base {
   :root {
