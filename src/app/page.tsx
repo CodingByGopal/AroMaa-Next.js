@@ -1,6 +1,7 @@
 import FoodByTags from "@/components/food-by-tags";
 import Hero from "@/components/hero";
 import SkeletonGrid from "@/components/skeleton-grid";
+import SkeletonTags from "@/components/skeleton-tags";
 import TagList from "@/components/tag-list";
 import TrendingRecipes from "@/components/trending-recipes";
 import { Suspense } from "react";
@@ -23,7 +24,10 @@ export default async function Home() {
         </Suspense>
 
       )}
-      <TagList />
+      <Suspense fallback={<SkeletonTags numberOfTags={23} />}>
+        <TagList />
+      </Suspense>
+
 
     </>
   );
