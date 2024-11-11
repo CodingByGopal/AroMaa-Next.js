@@ -2,7 +2,9 @@
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { Input } from './ui/input';
 
-const SearchInput = () => {
+const SearchInput = (props: {
+    defaultValue?: string;
+}) => {
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -19,6 +21,7 @@ const SearchInput = () => {
     return (
         <form onSubmit={handleFormSubmit}>
             <Input
+                defaultValue={props?.defaultValue}
                 name='search'
                 placeholder='Type and hit enter'
             />
