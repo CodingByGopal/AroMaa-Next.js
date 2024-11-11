@@ -1,5 +1,6 @@
 import { CustomSelect } from '@/components/custom-select';
 import RecipeUi from '@/components/recipe-ui';
+import SearchInput from '@/components/search-input';
 import SectionTitle from '@/components/section-title';
 import SkeletonRecipes from '@/components/skeleton-recipes';
 import { SearchParamsType } from '@/data/_model/searchparams.type';
@@ -18,6 +19,7 @@ const Recipes = async (props: {
             <div className="container">
                 <div className=' mb-8 flex gap-4 sm:flex-row flex-col justify-between sm:items-center'>
                     <SectionTitle title='Recipes' />
+                    <SearchInput />
                     <div className=' sm:min-w-36'>
                         <CustomSelect
                             defaultValue={selectedOption?.id}

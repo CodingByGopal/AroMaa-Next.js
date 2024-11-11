@@ -23,12 +23,14 @@ const RecipeUi = async (props: {
         select: string;
         sortBy?: string;
         order?: string;
+        q?: string;
     } = {
         limit: itemsPerPage,
         skip: (isGreaterThanZero ? (pageNumber - 1) * itemsPerPage : 0),
         select: "name,image",
         sortBy: selectedOption?.key,
-        order: selectedOption?.value
+        order: selectedOption?.value,
+        q: searchParams?.q?.toString()
     }
 
     if (!obj.sortBy || !obj.order) {
@@ -36,6 +38,11 @@ const RecipeUi = async (props: {
         delete obj.order;
 
     }
+
+    if (!obj.q || obj.q?.trim()?.length === 0) {
+        delete obj.q;
+    }
+
     const data: RecipeResponseModel = await RecipesService.searchRecipes(obj);
     const recipes = data?.recipes ?? [];
     const totalPages = Math.ceil(data?.total / itemsPerPage);
