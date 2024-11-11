@@ -18,9 +18,6 @@ export function CustomSelect(props: CustomSelectType) {
     const onChange = (id: string) => {
         const filteredOption = props?.options?.filter(option => option?.id === id)[0];
         if (!filteredOption) return;
-
-
-
         const params = new URLSearchParams(searchParams);
         params.set('page', "1");
         params.set("sortBy", filteredOption?.id);
@@ -29,7 +26,7 @@ export function CustomSelect(props: CustomSelectType) {
     }
 
     return (
-        <Select onValueChange={onChange}>
+        <Select defaultValue={props?.defaultValue} onValueChange={onChange}>
             <SelectTrigger>
                 <SelectValue placeholder={props?.placeholder || "Select an option"} />
             </SelectTrigger>

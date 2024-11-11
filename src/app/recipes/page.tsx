@@ -67,8 +67,7 @@ const Recipes = async (props: {
     const pageNumber = pageInUrl ? Number(pageInUrl) : 0;
     const isGreaterThanZero = pageNumber > 0;
     const itemsPerPage = 12;
-    const sortBy = recipeFilters?.find(filter => filter?.id === searchParams?.sortBy)?.key;
-    const order = recipeFilters?.find(filter => filter?.id === searchParams?.sortBy)?.value;
+    const selectedOption = recipeFilters.filter(option => option?.id === searchParams?.sortBy)[0];
 
     const obj: {
         limit: number;
@@ -80,8 +79,8 @@ const Recipes = async (props: {
         limit: itemsPerPage,
         skip: (isGreaterThanZero ? (pageNumber - 1) * itemsPerPage : 0),
         select: "name,image",
-        sortBy,
-        order
+        sortBy: selectedOption?.key,
+        order: selectedOption?.value
     }
 
     if (!obj.sortBy || !obj.order) {
@@ -107,6 +106,7 @@ const Recipes = async (props: {
                 </div>
                 <div className=' grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  gap-4'>
                     <CustomSelect
+                        defaultValue={selectedOption?.id}
                         placeholder='Sort By'
                         options={recipeFilters} />
 
