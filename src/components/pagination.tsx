@@ -49,7 +49,7 @@ const Pagination = (props: PaginationPropsType) => {
 
     const updatePageInURL = (pageNum: number) => {
         const params = new URLSearchParams(searchParams);
-        params.set('p', pageNum?.toString());
+        params.set('page', pageNum?.toString());
         router.push(`${pathname}?${params.toString()}`)
     }
 
