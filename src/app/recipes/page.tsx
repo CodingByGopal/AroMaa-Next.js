@@ -4,6 +4,7 @@ import Pagination from '@/components/pagination';
 import RecipeCard from '@/components/recipe-card';
 import SectionTitle from '@/components/section-title';
 import { OrderEnum } from '@/data/_enums/order.enum';
+import { RecipeIdEnum } from '@/data/_enums/recipe.id.enums';
 import { RecipeKeyEnum } from '@/data/_enums/recipe.key.enum';
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
 import { RecipesService } from '@/services/recipes.service'
@@ -13,42 +14,42 @@ import React from 'react'
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 const recipeFilters = [
     {
-        id: "1",
+        id: RecipeIdEnum.NAME_A_Z,
         label: "Name - A to Z",
         key: RecipeKeyEnum.NAME,
         value: OrderEnum.ASC
 
     },
     {
-        id: "2",
+        id: RecipeIdEnum.NAME_Z_A,
         label: "Name - Z to A",
         key: RecipeKeyEnum.NAME,
         value: OrderEnum.DESC
 
     },
     {
-        id: "3",
+        id: RecipeIdEnum.LESS_CALORIES,
         label: "Less Calories",
         key: RecipeKeyEnum.CALORIES_PER_SERVING,
         value: OrderEnum.ASC
 
     },
     {
-        id: "4",
+        id: RecipeIdEnum.MORE_CALORIES,
         label: "More Calories",
         key: RecipeKeyEnum.CALORIES_PER_SERVING,
         value: OrderEnum.DESC
 
     },
     {
-        id: "5",
+        id: RecipeIdEnum.SHORTER_COOK_TIME,
         label: "Shorter Cooking Time",
         key: RecipeKeyEnum.COOK_TIME_MINUTES,
         value: OrderEnum.ASC
 
     },
     {
-        id: "6",
+        id: RecipeIdEnum.LONGER_COOK_TIME,
         label: "Longer Cooking Time",
         key: RecipeKeyEnum.COOK_TIME_MINUTES,
         value: OrderEnum.DESC
@@ -66,7 +67,8 @@ const Recipes = async (props: {
     const pageNumber = pageInUrl ? Number(pageInUrl) : 0;
     const isGreaterThanZero = pageNumber > 0;
     const itemsPerPage = 12;
-
+    const sortBy = recipeFilters?.find(filter => filter?.id === searchParams?.sortBy)?.key;
+    const order = recipeFilters?.find(filter => filter?.id === searchParams?.sortBy)?.value;
 
     const obj: {
         limit: number;
@@ -78,8 +80,8 @@ const Recipes = async (props: {
         limit: itemsPerPage,
         skip: (isGreaterThanZero ? (pageNumber - 1) * itemsPerPage : 0),
         select: "name,image",
-        sortBy: searchParams?.sortBy as string,
-        order: searchParams?.order as string
+        sortBy,
+        order
     }
 
     if (!obj.sortBy || !obj.order) {

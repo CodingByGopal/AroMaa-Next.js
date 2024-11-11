@@ -23,8 +23,7 @@ export function CustomSelect(props: CustomSelectType) {
 
         const params = new URLSearchParams(searchParams);
         params.set('page', "1");
-        params.set("sortBy", filteredOption?.key);
-        params.set("order", filteredOption?.value);
+        params.set("sortBy", filteredOption?.id);
         router.replace(`${pathname}?${params.toString()}`)
 
     }

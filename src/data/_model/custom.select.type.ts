@@ -1,4 +1,4 @@
 export type CustomSelectType = {
-    options: { id: string, key: string, label: string; value: string }[]
+    options: { id: string, label: string; key: string, value: string }[]
     placeholder?: string,
 }
