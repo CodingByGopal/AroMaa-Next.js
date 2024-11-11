@@ -19,7 +19,7 @@ export function CustomSelect(props: CustomSelectType) {
         if (id === "ALL") {
             const params = new URLSearchParams(searchParams);
             params.delete('sortBy');
-            router.replace(`${pathname}?${params.toString()}`)
+            router.push(`${pathname}?${params.toString()}`)
             return;
         }
 
@@ -29,13 +29,13 @@ export function CustomSelect(props: CustomSelectType) {
         const params = new URLSearchParams(searchParams);
         params.set('page', "1");
         params.set("sortBy", filteredOption?.id);
-        router.replace(`${pathname}?${params.toString()}`)
+        router.push(`${pathname}?${params.toString()}`)
 
     }
 
     return (
         <Select defaultValue={props?.defaultValue} onValueChange={onChange}>
-            <SelectTrigger>
+            <SelectTrigger name="Select Recipe Filters">
                 <SelectValue placeholder={props?.placeholder || "Select an option"} />
             </SelectTrigger>
             <SelectContent>

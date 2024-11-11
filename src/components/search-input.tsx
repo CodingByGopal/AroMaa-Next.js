@@ -15,7 +15,7 @@ const SearchInput = (props: {
         const params = new URLSearchParams(searchParams);
         params.set('page', "1");
         params.set("q", text);
-        router.replace(`${pathname}?${params.toString()}`)
+        router.push(`${pathname}?${params.toString()}`)
     };
 
     return (
