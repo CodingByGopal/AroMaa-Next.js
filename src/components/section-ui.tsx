@@ -8,7 +8,7 @@ const SectionUi = (props: {
     title: string
 }) => {
     return (
-        <section className='md:pt-14 pt-8 relative '>
+        <section className='md:pt-14 pt-8  '>
             <div className="container">
                 <div className=' mb-8'>
                     <SectionTitle title={props?.title} />

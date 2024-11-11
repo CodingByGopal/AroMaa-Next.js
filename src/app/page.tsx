@@ -1,7 +1,9 @@
 import FoodByTags from "@/components/food-by-tags";
 import Hero from "@/components/hero";
+import SkeletonGrid from "@/components/skeleton-grid";
 import TagList from "@/components/tag-list";
 import TrendingRecipes from "@/components/trending-recipes";
+import { Suspense } from "react";
 
 const foodTags = ['Italian', 'Indian']
 
@@ -9,10 +11,17 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <TrendingRecipes />
+      <Suspense fallback={<SkeletonGrid numberOfCards={8} />}>
+        <TrendingRecipes />
+      </Suspense>
+
 
       {foodTags?.map((tag) =>
-        <FoodByTags key={tag} tag={tag} />
+
+        <Suspense key={tag} fallback={<SkeletonGrid numberOfCards={8} />}>
+          <FoodByTags tag={tag} />
+        </Suspense>
+
       )}
       <TagList />
 
