@@ -101,16 +101,17 @@ const Recipes = async (props: {
     return (
         <section className='pt-8  '>
             <div className="container">
-                <div className=' mb-4'>
+                <div className=' mb-8 flex gap-4 sm:flex-row flex-col justify-between sm:items-center'>
                     <SectionTitle title='Recipes' />
-                </div>
-                <div className=' grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  gap-4'>
-                    <CustomSelect
-                        defaultValue={selectedOption?.id}
-                        placeholder='Sort By'
-                        options={recipeFilters} />
+                    <div className=' sm:min-w-36'>
+                        <CustomSelect
+                            defaultValue={selectedOption?.id}
+                            placeholder='Sort By'
+                            options={recipeFilters} />
+                    </div>
 
                 </div>
+
                 {recipes?.length === 0 ?
                     <NoData message='No Recipes Found' /> :
                     <>

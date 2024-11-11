@@ -7,7 +7,7 @@ const Loading = () => {
         <section className='pt-8'>
 
             <div className=' container'>
-                <Skeleton className="h-6 w-[150px] mb-4" />
+                <Skeleton className="h-6 w-[150px] mb-8" />
 
                 <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
                     {[...Array(12)]?.map((_, index) => <SkeletonCard key={index} />)}
