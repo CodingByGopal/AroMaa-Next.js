@@ -36,7 +36,7 @@ const RecipeUi = async (props: {
         delete obj.order;
 
     }
-    const data: RecipeResponseModel = await RecipesService.getAllRecipes(obj);
+    const data: RecipeResponseModel = await RecipesService.searchRecipes(obj);
     const recipes = data?.recipes ?? [];
     const totalPages = Math.ceil(data?.total / itemsPerPage);
     const currentPage = isGreaterThanZero ? Math.min(pageNumber, totalPages) : 1;
