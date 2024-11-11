@@ -3,11 +3,60 @@ import NoData from '@/components/no-data';
 import Pagination from '@/components/pagination';
 import RecipeCard from '@/components/recipe-card';
 import SectionTitle from '@/components/section-title';
+import { OrderEnum } from '@/data/_enums/order.enum';
+import { RecipeKeyEnum } from '@/data/_enums/recipe.key.enum';
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
 import { RecipesService } from '@/services/recipes.service'
 import React from 'react'
-type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 
+
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
+const recipeFilters = [
+    {
+        id: "1",
+        label: "Name - A to Z",
+        key: RecipeKeyEnum.NAME,
+        value: OrderEnum.ASC
+
+    },
+    {
+        id: "2",
+        label: "Name - Z to A",
+        key: RecipeKeyEnum.NAME,
+        value: OrderEnum.DESC
+
+    },
+    {
+        id: "3",
+        label: "Less Calories",
+        key: RecipeKeyEnum.CALORIES_PER_SERVING,
+        value: OrderEnum.ASC
+
+    },
+    {
+        id: "4",
+        label: "More Calories",
+        key: RecipeKeyEnum.CALORIES_PER_SERVING,
+        value: OrderEnum.DESC
+
+    },
+    {
+        id: "5",
+        label: "Shorter Cooking Time",
+        key: RecipeKeyEnum.COOK_TIME_MINUTES,
+        value: OrderEnum.ASC
+
+    },
+    {
+        id: "6",
+        label: "Longer Cooking Time",
+        key: RecipeKeyEnum.COOK_TIME_MINUTES,
+        value: OrderEnum.DESC
+
+    },
+
+
+]
 const Recipes = async (props: {
     searchParams: SearchParams
 }) => {
@@ -46,52 +95,7 @@ const Recipes = async (props: {
 
     const currentPage = isGreaterThanZero ? Math.min(pageNumber, totalPages) : 1;
 
-    const recipeFilters = [
-        {
-            id: "1",
-            key: "name",
-            label: "Name - A to Z",
-            value: "asc"
 
-        },
-        {
-            id: "2",
-            key: "name",
-            label: "Name - Z to A",
-            value: "desc"
-
-        },
-        {
-            id: "3",
-            key: "caloriesPerServing",
-            label: "Less Calories",
-            value: "asc"
-
-        },
-        {
-            id: "4",
-            key: "caloriesPerServing",
-            label: "More Calories",
-            value: "desc"
-
-        },
-        {
-            id: "5",
-            key: "cookTimeMinutes",
-            label: "Shorter Cooking Time",
-            value: "asc"
-
-        },
-        {
-            id: "6",
-            key: "cookTimeMinutes",
-            label: "Longer Cooking Time",
-            value: "desc"
-
-        },
-
-
-    ]
 
     return (
         <section className='pt-8  '>
