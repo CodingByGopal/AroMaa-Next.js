@@ -1,6 +1,7 @@
 "use client";
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { Input } from './ui/input';
+import { Search } from 'lucide-react';
 
 const SearchInput = (props: {
     defaultValue?: string;
@@ -20,12 +21,19 @@ const SearchInput = (props: {
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <Input
-                className=' w-full'
-                defaultValue={props?.defaultValue}
-                name='search'
-                placeholder='Type & Hit Enter'
-            />
+
+            <div className="relative">
+                <span className="absolute text-foreground/70 inset-y-0 left-0 flex items-center pl-2">
+                    <Search size={20} />
+                </span>
+                <Input
+                    className=' w-full pl-10'
+                    defaultValue={props?.defaultValue}
+                    name='search'
+                    placeholder='Type & Hit Enter'
+                />
+            </div>
+
         </form>
     );
 };

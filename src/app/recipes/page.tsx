@@ -22,10 +22,10 @@ const Recipes = async (props: {
                     <SectionTitle title='Recipes' />
 
                     <div className='  flex sm:flex-row flex-col gap-4 sm:items-center'>
-                        <div className=' sm:min-w-52'>
+                        <div className=' sm:min-w-60'>
                             <SearchInput defaultValue={defaultValue} />
                         </div>
-                        <div className=' sm:min-w-52'>
+                        <div className=' sm:min-w-60'>
                             <CustomSelect
                                 defaultValue={selectedOption?.id}
                                 placeholder='Sort By'
