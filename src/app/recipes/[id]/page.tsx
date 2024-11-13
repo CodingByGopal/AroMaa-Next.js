@@ -1,8 +1,14 @@
+import { RecipesService } from '@/services/recipes.service'
 import React from 'react'
-
-const RecipeDetails = () => {
+type Params = Promise<{ id: string }>
+const RecipeDetails = async (props: {
+    params: Params
+}) => {
+    const params = await props?.params;
+    const data = await RecipesService.getRecipeById(params?.id);
+    console.log(data)
     return (
-        <div>RecipeDetails</div>
+        <section>RecipeDetails</section>
     )
 }
 
