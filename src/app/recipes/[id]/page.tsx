@@ -4,9 +4,8 @@ import { RecipeModel } from '@/data/_model/recipe.model'
 import CustomImg from '@/components/custom-img'
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
-import RecipeInsights from '@/components/recipe-insights'
 type Params = Promise<{ id: string }>
-const breakLinesAt = 8;
+const breakLinesAt = 7;
 const RecipeDetails = async (props: {
     params: Params
 }) => {
@@ -43,7 +42,7 @@ const RecipeDetails = async (props: {
                                     null}
 
                                 {(data?.instructions && data?.instructions?.length > 0) ?
-                                    <div className=' md:mt-8 mt-6'>
+                                    <div className='  mt-6'>
                                         <h2 className=' mb-4 text-xl font-medium '>Instructions</h2>
 
                                         <ul className=' text-balance pl-4  list-disc sm:space-y-1 space-y-2  text-foreground/80 '>
@@ -62,6 +61,25 @@ const RecipeDetails = async (props: {
                 </div>
 
                 <div className=' grid md:grid-cols-2 gap-6'>
+
+                    <div className='recipe-card'>
+                        <h2 className=' left-line pl-4  mb-4 text-xl font-medium'>Overview</h2>
+                        <ul className=' [&>li>span]:font-semibold [&>li>span]:text-foreground [&>li]:text-foreground/80  pl-4 list-disc sm:space-y-1 space-y-2 '>
+
+                            <li><span >Prepration Time : </span> {data?.prepTimeMinutes ? `${data?.prepTimeMinutes} Mins` : '--'}</li>
+                            <li><span >Cooking Time : </span> {data?.cookTimeMinutes ? `${data?.cookTimeMinutes} Mins` : '--'}</li>
+
+                            <li ><span >Cuisine : </span> {data?.cuisine ?? "--"}</li>
+                            <li ><span >Meal Type : </span> {data?.mealType ? data?.mealType?.join(", ") : "--"}</li>
+                            <li><span >Difficulty : </span> {data?.difficulty ?? "--"}</li>
+                            <li><span >Servings : </span> {data?.servings ?? "--"}</li>
+                            <li><span >Calories Per Servings : </span> {data?.caloriesPerServing ?? "--"}</li>
+
+
+                        </ul>
+
+                    </div>
+
                     <div className='recipe-card'>
                         <h2 className=' left-line pl-4  mb-4 text-xl font-medium'>Ingredients</h2>
 
@@ -77,11 +95,6 @@ const RecipeDetails = async (props: {
                                 </ul>
                             ))}
                         </div>
-                    </div>
-                    <div className='recipe-card'>
-
-
-                        <RecipeInsights data={data} />
                     </div>
 
 
