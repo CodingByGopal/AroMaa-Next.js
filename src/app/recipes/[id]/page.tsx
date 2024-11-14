@@ -6,17 +6,19 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { ScrollText } from 'lucide-react'
 type Params = Promise<{ id: string }>
+const breakLinesAt = 6;
 const RecipeDetails = async (props: {
     params: Params
 }) => {
     const params = await props?.params;
     const data: RecipeModel = await RecipesService.getRecipeById(params?.id);
-    console.log(data)
+    const cols = [...Array(Math.ceil(data?.ingredients?.length / breakLinesAt))?.keys()]
     return (
         <section className=' py-8'>
             <div className=' container '>
-                <div className=' dark:bg-secondary/40 bg-secondary border border-secondary md:p-8 p-6  md:rounded-[3.5rem] sm:rounded-[2.5rem] rounded-[2.75rem]  '>
-                    <h1 className='md:hidden left-line text-2xl mb-6  pl-4 font-medium leading-none '>{data?.name}</h1>
+
+                <div className=' recipe-card mb-8 '>
+                    <h1 className='md:hidden left-line text-2xl mb-4  pl-4 font-medium leading-none '>{data?.name}</h1>
                     <div className="grid md:grid-cols-12 gap-6 ">
                         <div className="md:col-span-4">
                             <div className='relative md:rounded-3xl sm:rounded-2xl rounded-xl     overflow-hidden  md:aspect-square aspect-video '>
@@ -60,6 +62,32 @@ const RecipeDetails = async (props: {
 
                         </div>
                     </div>
+                </div>
+
+                <div className=' grid grid-cols-2 gap-6'>
+                    <div className='recipe-card'>
+                        <h2 className=' left-line pl-4  mb-4 text-xl font-medium'>Ingredients</h2>
+
+                        <div className=' flex gap-6 items-start'>
+                            {cols?.map(col => (
+                                <ul
+                                    key={col}
+                                    className='sm:text-justify pl-4 list-disc sm:space-y-1 space-y-3 text-foreground/80'
+                                >
+                                    {data?.ingredients?.slice(col * breakLinesAt, col * breakLinesAt + breakLinesAt)?.map(ingredient => (
+                                        <li key={ingredient}>{ingredient}</li>
+                                    ))}
+                                </ul>
+                            ))}
+                        </div>
+                    </div>
+                    <div className='recipe-card'>
+                        <h2 className=' left-line pl-4  mb-4 text-xl font-medium'>Other Info</h2>
+
+                        gt
+                    </div>
+
+
                 </div>
 
             </div>

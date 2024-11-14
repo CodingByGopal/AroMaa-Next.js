@@ -32,3 +32,7 @@ input[type=number] {
     @apply flex dark:bg-secondary/20 bg-secondary justify-center border border-secondary items-center h-96 flex-col p-8 rounded-3xl;
 
 }
+
+.recipe-card{
+    @apply dark:bg-secondary/40 bg-secondary border border-secondary md:p-8 p-6  rounded-[2.25rem] 
+}
