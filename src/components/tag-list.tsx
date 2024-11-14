@@ -2,10 +2,10 @@ import { RecipesService } from "@/services/recipes.service"
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import SectionTitle from "./section-title";
-import { MoveRight } from "lucide-react";
 const TagList = async () => {
-    const tagsArray: string[] = await RecipesService.getTags();
-    const data = tagsArray.slice(0, 20);
+    const data: string[] = await RecipesService.getTags();
+
+    if (!data || data?.length === 0) return null;
 
     return (
         <section className="md:pt-14 pt-8">
@@ -13,18 +13,14 @@ const TagList = async () => {
                 <div className=' mb-8'>
                     <SectionTitle title='Want More?' />
                 </div>
-                <div className=" flex flex-wrap gap-2">
-                    {data.map(tag => <Link
-                        className={`${buttonVariants({ variant: "secondary", })} hover:!bg-primary hover:text-white hover:border-primary `}
+                <div className=" flex flex-wrap items-center gap-2">
+                    {data?.map(tag => <Link
+                        className={`${buttonVariants({ variant: "secondary", size: "sm" })}`}
                         href={`/categories/${tag}`} key={tag}>
                         {tag}
                     </Link>)}
 
-                    <Link
-                        className={`${buttonVariants({ variant: "default", })} `}
-                        href={`/categories`} >
-                        View All <MoveRight size={16} />
-                    </Link>
+
                 </div>
 
             </div>

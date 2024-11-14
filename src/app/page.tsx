@@ -24,7 +24,7 @@ export default async function Home() {
         </Suspense>
 
       )}
-      <Suspense fallback={<SkeletonTags numberOfTags={23} />}>
+      <Suspense fallback={<SkeletonTags numberOfTags={87} />}>
         <TagList />
       </Suspense>
 

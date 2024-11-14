@@ -20,7 +20,7 @@ const MobileMenu = (props: {
     pathName: string
 }) => {
     const [open, setOpen] = useState<boolean>(false);
-    const newNav = [...props.navigationOptions, { label: 'Search', path: '/search', icon: <Search /> }]
+    const newNav: NavigationOptionsModel[] = [...props.navigationOptions, { label: 'Search', path: '/search', icon: <Search /> }]
     return (
         <Sheet open={open} onOpenChange={setOpen} >
             <SheetTrigger asChild>
@@ -39,7 +39,7 @@ const MobileMenu = (props: {
 
 
                     {newNav?.map((item, i) => {
-                        return <Link key={i} href={item?.path} onClick={() => setOpen(false)}
+                        return <Link key={i} rel={item?.rel} target={item?.target} href={item?.path} onClick={() => setOpen(false)}
                             className={`  flex items-center gap-3 transition-all duration-300 px-6 py-3 
                                  ${props?.pathName === item.path ? " bg-accent/60" :
                                     " hover:bg-accent/60"} `} >

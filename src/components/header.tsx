@@ -6,7 +6,7 @@ import Logo from "./logo";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { Button, buttonVariants } from "./ui/button";
-import { Book, Home, Pizza, Search, Text } from "lucide-react";
+import { Book, GitFork, Home, Search, Text } from "lucide-react";
 import MobileMenu from "./mobile-menu";
 
 const navigationOptions: NavigationOptionsModel[] = [
@@ -22,9 +22,11 @@ const navigationOptions: NavigationOptionsModel[] = [
         icon: <Book />
     },
     {
-        label: 'Categories',
-        path: '/categories',
-        icon: <Pizza />
+        label: 'Github',
+        path: 'https://github.com/CodingByGopal/aromaa',
+        icon: <GitFork />,
+        target: '_blank',
+        rel: "noopener noreferrer"
     },
 
 
@@ -45,7 +47,8 @@ const Header = () => {
                         <Logo />
                         <nav className=" border-l-2 border-border pl-6 hidden md:flex items-center gap-5 font-semibold text-base">
                             {navigationOptions.map((navOption, index) => (
-                                <Link className={`${pathname === navOption?.path ? 'bottom-line' : " "}    duration-300 transition-all `} href={navOption?.path} key={index}>
+                                <Link className={`${pathname === navOption?.path ? 'bottom-line' : " "} 
+                                   duration-300 transition-all `} rel={navOption?.rel} target={navOption?.target} href={navOption?.path} key={index}>
                                     {navOption?.label}
                                 </Link>
                             ))}

@@ -12,7 +12,7 @@ const SkeletonTags = (props: {
                 <Skeleton className="h-6 w-[150px] mb-8" />
 
                 <div className=" flex flex-wrap gap-2">
-                    {[...Array(props?.numberOfTags)]?.map((_, index) => <Skeleton key={index} className="h-10 rounded-[999px]  w-24 " />)}
+                    {[...Array(props?.numberOfTags)]?.map((_, index) => <Skeleton key={index} className="h-8 rounded-[999px]  w-24 " />)}
 
                 </div>
             </div>
