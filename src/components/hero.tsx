@@ -11,7 +11,7 @@ const Hero = () => {
             <div className="container">
 
                 <div className="  bg-background rounded-[3.5rem]  sm:px-10 sm:py-20 py-10 px-8 ">
-                    <div className=" md:text-center text-balance  sm:max-w-[700px] mx-auto">
+                    <div className=" sm:text-center text-balance  sm:max-w-[700px] mx-auto">
                         <h1 className=" font-bold text-foreground sm:text-5xl text-3xl mb-4  ">Discover Delicious <span className="text-primary">Recipes</span> to Savor Every Bite</h1>
                         <p className=" text-base text-foreground/70 mb-8 ">Find inspiration for every meal with recipes that bring flavors to life.
 

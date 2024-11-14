@@ -13,7 +13,7 @@ const RecipeDetails = async (props: {
     const data: RecipeModel = await RecipesService.getRecipeById(params?.id);
     const cols = [...Array(Math.ceil(data?.ingredients?.length / breakLinesAt))?.keys()]
     return (
-        <section className=' py-8'>
+        <section className=' pt-8'>
             <div className=' container '>
 
                 <div className=' recipe-card mb-6 '>
