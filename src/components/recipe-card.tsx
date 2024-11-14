@@ -11,7 +11,7 @@ const RecipeCard = (props: {
     return (
         <Link href={`/recipes/${recipe?.id}`} className="relative  cursor-pointer">
             <div className="w-full h-48 relative [&>img]:hover:scale-110 [&>img]:transition-all [&>img]:duration-500  overflow-hidden rounded-lg ">
-                <CustomImg src={recipe?.image} alt='Food' />
+                <CustomImg src={recipe?.image} alt={`Image of ${recipe?.name}`} />
             </div>
             <div className="absolute bottom-0 left-0 bg-background p-2 rounded-tr-lg ">
                 <h3 className="text-sm font-semibold">{name}</h3>

@@ -16,20 +16,21 @@ const RecipeDetails = async (props: {
         <section className=' pt-8'>
             <div className=' container '>
 
-                <div className=' recipe-card mb-6 '>
+                <div className='  mb-6 '>
                     <h1 className='md:hidden left-line text-2xl mb-4  pl-4 font-medium leading-none '>{data?.name}</h1>
-                    <div className="grid md:grid-cols-12 gap-6 ">
+                    <div className="grid md:grid-cols-12 gap-6  ">
                         <div className="md:col-span-4">
-                            <div className='relative md:rounded-3xl sm:rounded-2xl rounded-xl     overflow-hidden  md:aspect-square aspect-video '>
-                                <CustomImg src={data?.image} alt={`Image of ${data?.name}`} />
+                            <div className='relative md:rounded-3xl sm:rounded-2xl rounded-xl md:aspect-square  aspect-video      overflow-hidden'>
 
+                                <CustomImg src={data?.image} alt={`Image of ${data?.name}`} />
                             </div>
                         </div>
 
-                        <div className=' md:col-span-8'>
+                        <div className=' md:col-span-8 recipe-card'>
 
                             <>
                                 <h1 className='md:block hidden left-line text-3xl   pl-4 font-medium leading-none '>{data?.name}</h1>
+                                <h2 className=' left-line pl-4  mb-4 text-xl font-medium md:hidden'>Instructions</h2>
                                 {(data?.tags && data?.tags?.length > 0) ?
                                     <div className=' flex flex-wrap gap-2  md:mt-6 mt-0  items-center'>
                                         {data?.tags?.map(tag => <Link
@@ -43,7 +44,7 @@ const RecipeDetails = async (props: {
 
                                 {(data?.instructions && data?.instructions?.length > 0) ?
                                     <div className='  mt-6'>
-                                        <h2 className=' mb-4 text-xl font-medium '>Instructions</h2>
+                                        <h2 className=' mb-4 text-xl font-medium md:block hidden '>Instructions</h2>
 
                                         <ul className=' text-balance pl-4  list-disc sm:space-y-1 space-y-2  text-foreground/80 '>
                                             {data?.instructions?.map(instruction => <li key={instruction}>{instruction}</li>)}
