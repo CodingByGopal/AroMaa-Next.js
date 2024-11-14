@@ -5,6 +5,7 @@ import CustomImg from '@/components/custom-img'
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import { ScrollText } from 'lucide-react'
+import RecipeInsights from '@/components/recipe-insights'
 type Params = Promise<{ id: string }>
 const breakLinesAt = 6;
 const RecipeDetails = async (props: {
@@ -84,15 +85,7 @@ const RecipeDetails = async (props: {
                     <div className='recipe-card'>
                         <h2 className=' left-line pl-3  mb-4 text-xl font-medium'>Other Info</h2>
 
-                        <ul className=' pl-4 list-disc sm:space-y-1 space-y-3 text-foreground/80'>
-                            <li><span className=' font-semibold'>Prepration Time : </span> {data?.prepTimeMinutes ? `${data?.prepTimeMinutes} Mins` : '--'}</li>
-                            <li><span className=' font-semibold'>Cooking Time : </span> {data?.cookTimeMinutes ? `${data?.cookTimeMinutes} Mins` : '--'}</li>
-                            <li><span className=' font-semibold'>Difficulty : </span> {data?.difficulty ?? "--"}</li>
-                            <li><span className=' font-semibold'>Cuisine : </span> {data?.cuisine ?? "--"}</li>
-                            <li><span className=' font-semibold'>Servings : </span> {data?.servings ?? "--"}</li>
-                            <li><span className=' font-semibold'>Calories Per Servings : </span> {data?.caloriesPerServing ?? "--"}</li>
-
-                        </ul>
+                        <RecipeInsights data={data} />
                     </div>
 
 
