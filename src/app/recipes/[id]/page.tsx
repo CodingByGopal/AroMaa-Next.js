@@ -65,7 +65,7 @@ const RecipeDetails = async (props: {
 
                     <div className='recipe-card'>
                         <h2 className=' left-line pl-4  mb-4 text-xl font-medium'>Overview</h2>
-                        <ul className=' [&>li>span]:font-semibold [&>li>span]:text-foreground [&>li]:text-foreground/80  pl-4 list-disc sm:space-y-1 space-y-2 '>
+                        <ul className=' [&>li>span]:font-semibold text-foreground/80  pl-4 list-disc sm:space-y-1 space-y-2 '>
 
                             <li><span >Prepration Time : </span> {data?.prepTimeMinutes ? `${data?.prepTimeMinutes} Mins` : '--'}</li>
                             <li><span >Cooking Time : </span> {data?.cookTimeMinutes ? `${data?.cookTimeMinutes} Mins` : '--'}</li>
