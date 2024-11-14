@@ -23,7 +23,7 @@ const buttonVariants = cva(
         default: "px-6 py-3",
         sm: " rounded-md px-4 py-2 !rounded-[999px]",
         lg: " rounded-md px-8 py-4 !rounded-[999px]",
-        icon: "h-10 w-10 !rounded-full bg-accent hover:bg-accent/90",
+        icon: "h-10 w-10 !rounded-full ",
       },
     },
     defaultVariants: {

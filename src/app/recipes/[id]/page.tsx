@@ -4,10 +4,9 @@ import { RecipeModel } from '@/data/_model/recipe.model'
 import CustomImg from '@/components/custom-img'
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
-import { ScrollText } from 'lucide-react'
 import RecipeInsights from '@/components/recipe-insights'
 type Params = Promise<{ id: string }>
-const breakLinesAt = 6;
+const breakLinesAt = 8;
 const RecipeDetails = async (props: {
     params: Params
 }) => {
@@ -45,12 +44,9 @@ const RecipeDetails = async (props: {
 
                                 {(data?.instructions && data?.instructions?.length > 0) ?
                                     <div className=' md:mt-8 mt-6'>
-                                        <div className=' mb-4  flex items-center gap-2'>
-                                            <ScrollText />
-                                            <h2 className=' text-xl font-medium '>Instructions</h2>
-                                        </div>
+                                        <h2 className=' mb-4 text-xl font-medium '>Instructions</h2>
 
-                                        <ul className=' text-balance pl-5  list-disc sm:space-y-1 space-y-3  text-foreground/80 '>
+                                        <ul className=' text-balance pl-4  list-disc sm:space-y-1 space-y-2  text-foreground/80 '>
                                             {data?.instructions?.map(instruction => <li key={instruction}>{instruction}</li>)}
                                         </ul>
 
@@ -69,11 +65,11 @@ const RecipeDetails = async (props: {
                     <div className='recipe-card'>
                         <h2 className=' left-line pl-4  mb-4 text-xl font-medium'>Ingredients</h2>
 
-                        <div className=' flex  flex-wrap sm:gap-6 gap-4 items-start'>
+                        <div className=' flex  flex-wrap lg:gap-6 md:gap-2 sm:gap-6 gap-2 items-start'>
                             {cols?.map(col => (
                                 <ul
                                     key={col}
-                                    className=' pl-3 list-disc sm:space-y-1 space-y-3 text-foreground/80'
+                                    className=' pl-3 list-disc sm:space-y-1 space-y-2 text-foreground/80'
                                 >
                                     {data?.ingredients?.slice(col * breakLinesAt, col * breakLinesAt + breakLinesAt)?.map(ingredient => (
                                         <li key={ingredient}>{ingredient}</li>
@@ -83,7 +79,7 @@ const RecipeDetails = async (props: {
                         </div>
                     </div>
                     <div className='recipe-card'>
-                        <h2 className=' left-line pl-3  mb-4 text-xl font-medium'>Other Info</h2>
+
 
                         <RecipeInsights data={data} />
                     </div>
