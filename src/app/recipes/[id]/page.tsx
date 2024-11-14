@@ -17,7 +17,7 @@ const RecipeDetails = async (props: {
         <section className=' py-8'>
             <div className=' container '>
 
-                <div className=' recipe-card mb-8 '>
+                <div className=' recipe-card mb-6 '>
                     <h1 className='md:hidden left-line text-2xl mb-4  pl-4 font-medium leading-none '>{data?.name}</h1>
                     <div className="grid md:grid-cols-12 gap-6 ">
                         <div className="md:col-span-4">
@@ -49,7 +49,7 @@ const RecipeDetails = async (props: {
                                             <h2 className=' text-xl font-medium '>Instructions</h2>
                                         </div>
 
-                                        <ul className=' sm:text-justify pl-4  list-disc sm:space-y-1 space-y-3  text-foreground/80 '>
+                                        <ul className=' pl-5  list-disc sm:space-y-1 space-y-3  text-foreground/80 '>
                                             {data?.instructions?.map(instruction => <li key={instruction}>{instruction}</li>)}
                                         </ul>
 
@@ -64,15 +64,15 @@ const RecipeDetails = async (props: {
                     </div>
                 </div>
 
-                <div className=' grid grid-cols-2 gap-6'>
+                <div className=' grid md:grid-cols-2 gap-6'>
                     <div className='recipe-card'>
                         <h2 className=' left-line pl-4  mb-4 text-xl font-medium'>Ingredients</h2>
 
-                        <div className=' flex gap-6 items-start'>
+                        <div className=' flex  flex-wrap gap-6 items-start'>
                             {cols?.map(col => (
                                 <ul
                                     key={col}
-                                    className='sm:text-justify pl-4 list-disc sm:space-y-1 space-y-3 text-foreground/80'
+                                    className=' pl-3 list-disc sm:space-y-1 space-y-3 text-foreground/80'
                                 >
                                     {data?.ingredients?.slice(col * breakLinesAt, col * breakLinesAt + breakLinesAt)?.map(ingredient => (
                                         <li key={ingredient}>{ingredient}</li>
@@ -82,9 +82,17 @@ const RecipeDetails = async (props: {
                         </div>
                     </div>
                     <div className='recipe-card'>
-                        <h2 className=' left-line pl-4  mb-4 text-xl font-medium'>Other Info</h2>
+                        <h2 className=' left-line pl-3  mb-4 text-xl font-medium'>Other Info</h2>
 
-                        gt
+                        <ul className=' pl-4 list-disc sm:space-y-1 space-y-3 text-foreground/80'>
+                            <li><span className=' font-semibold'>Prepration Time : </span> {data?.prepTimeMinutes ? `${data?.prepTimeMinutes} Mins` : '--'}</li>
+                            <li><span className=' font-semibold'>Cooking Time : </span> {data?.cookTimeMinutes ? `${data?.cookTimeMinutes} Mins` : '--'}</li>
+                            <li><span className=' font-semibold'>Difficulty : </span> {data?.difficulty ?? "--"}</li>
+                            <li><span className=' font-semibold'>Cuisine : </span> {data?.cuisine ?? "--"}</li>
+                            <li><span className=' font-semibold'>Servings : </span> {data?.servings ?? "--"}</li>
+                            <li><span className=' font-semibold'>Calories Per Servings : </span> {data?.caloriesPerServing ?? "--"}</li>
+
+                        </ul>
                     </div>
 
 
@@ -92,7 +100,7 @@ const RecipeDetails = async (props: {
 
             </div>
 
-        </section>
+        </section >
     )
 }
 
