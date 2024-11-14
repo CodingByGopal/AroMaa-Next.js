@@ -58,7 +58,7 @@ const Header = () => {
                         </nav>
                     </div>
                     <div className=" md:flex hidden items-center gap-3">
-                        <Link className={`${buttonVariants({ variant: "secondary", size: "icon" })} `} href='/search'>
+                        <Link className={buttonVariants({ variant: "secondary", size: "icon" })} href='/search'>
 
                             <Search />
                             <span className="sr-only">Search Recipe</span>

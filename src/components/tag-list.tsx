@@ -15,7 +15,7 @@ const TagList = async () => {
                 </div>
                 <div className=" flex flex-wrap items-center gap-2">
                     {data?.map(tag => <Link
-                        className={`${buttonVariants({ variant: "secondary", size: "sm" })}`}
+                        className={buttonVariants({ variant: "secondary", size: "sm", className: "text-foreground/80" })}
                         href={`/categories/${tag}`} key={tag}>
                         {tag}
                     </Link>)}
