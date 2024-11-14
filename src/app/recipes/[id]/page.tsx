@@ -49,7 +49,7 @@ const RecipeDetails = async (props: {
                                             <h2 className=' text-xl font-medium '>Instructions</h2>
                                         </div>
 
-                                        <ul className=' pl-5  list-disc sm:space-y-1 space-y-3  text-foreground/80 '>
+                                        <ul className=' text-balance pl-5  list-disc sm:space-y-1 space-y-3  text-foreground/80 '>
                                             {data?.instructions?.map(instruction => <li key={instruction}>{instruction}</li>)}
                                         </ul>
 
@@ -68,7 +68,7 @@ const RecipeDetails = async (props: {
                     <div className='recipe-card'>
                         <h2 className=' left-line pl-4  mb-4 text-xl font-medium'>Ingredients</h2>
 
-                        <div className=' flex  flex-wrap gap-6 items-start'>
+                        <div className=' flex  flex-wrap sm:gap-6 gap-4 items-start'>
                             {cols?.map(col => (
                                 <ul
                                     key={col}
