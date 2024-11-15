@@ -1,3 +1,4 @@
+import { slugify } from '@/data/_helpers/slugify';
 import { RecipeModel } from '@/data/_model/recipe.model';
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
 import { RecipesService } from '@/services/recipes.service';
@@ -26,7 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         return {
             url: item,
             lastModified: new Date(),
-            changeFrequency: 'monthly',
+            changeFrequency: 'weekly',
             priority: 1,
         }
     });
@@ -37,9 +38,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const recipePages = recipes?.map((val: RecipeModel) => {
         const item = {
-            url: `${baseUrl}/recipes/${val?.id}`,
+            url: `${baseUrl}/recipes/${slugify(val?.name)}-${val?.id}`,
             lastModified: new Date(),
-            changeFrequency: 'daily',
+            changeFrequency: "weekly",
             priority: 0.9,
         }
         return item
@@ -50,7 +51,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         const item = {
             url: `${baseUrl}/tag/${encodeURIComponent(val)}`,
             lastModified: new Date(),
-            changeFrequency: 'daily',
+            changeFrequency: "weekly",
             priority: 0.8,
         }
         return item

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import type { Metadata, ResolvingMetadata } from 'next'
 import NoData from '@/components/no-data'
+import { extractId } from '@/data/_helpers/slugify'
 type Params = Promise<{ id: string }>
 
 
@@ -17,34 +18,45 @@ export async function generateMetadata(
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     const params = await props?.params;
-    const data: RecipeModel = await RecipesService.getRecipeById(params?.id);
 
-    // optionally access and extend (rather than replace) parent metadata
-    const previousImages = (await parent)?.openGraph?.images || [];
-    const previousKeywords = (await parent)?.keywords || [];
-    return {
-        title: data?.name ?? "Recipe",
-        keywords: [...(data?.tags ?? []), ...previousKeywords],
-        openGraph: {
-            images: [data?.image ?? "", ...previousImages],
-        },
-        alternates: {
-            canonical: `/recipes/${data?.id}`
-        },
+    const id = extractId(params?.id);
+    const initalData = { id: params?.id, name: params?.id, tags: [], image: null }
+
+    const data: RecipeModel = id ? await RecipesService.getRecipeById(id) : initalData;
+    if (!data?.message) {
+        // optionally access and extend (rather than replace) parent metadata
+        const previousImages = (await parent)?.openGraph?.images || [];
+        const previousKeywords = (await parent)?.keywords || [];
+        return {
+            title: data?.name,
+            keywords: [...data?.tags, ...previousKeywords],
+            openGraph: {
+                images: [data?.image, ...previousImages],
+            },
+            alternates: {
+                canonical: `/recipes/${data?.id}`
+            },
+        }
+
+    } else {
+        return {
+            title: params?.id,
+            alternates: {
+                canonical: `/recipes/${params?.id}`
+            }
+        }
     }
+
+
 }
 
-
-
-
-
-const breakLinesAt = 7;
 const RecipeDetails = async (props: {
     params: Params
 }) => {
     const params = await props?.params;
-    const data: RecipeModel = await RecipesService.getRecipeById(params?.id);
-    console.log(data)
+    const breakLinesAt = 7;
+    const id = extractId(params?.id);
+    const data: RecipeModel = id ? await RecipesService.getRecipeById(id) : { message: `Recipe with id '${params?.id}' not found` };
 
     const cols = data?.ingredients ? [...Array(Math.ceil(data?.ingredients?.length / breakLinesAt))?.keys()] : [];
     return (
