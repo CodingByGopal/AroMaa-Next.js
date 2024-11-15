@@ -1,3 +1,18 @@
+html,body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding: 4rem;
+
+}
+
+@media (max-width: 768px) {
+    html,body {
+
+        scroll-padding: 2.5rem;
+    }
+
+}
+
 ::selection {
     color: hsl(var(--primary-foreground));
     background: hsl(var(--primary));

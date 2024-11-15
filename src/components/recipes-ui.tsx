@@ -1,5 +1,5 @@
 import { RecipeResponseModel } from "@/data/_model/recipe.response.model";
-import { RecipesService } from "@/services/recipes.service";
+import RecipesService from "@/services/recipes.service";
 import NoData from "./no-data";
 import Pagination from "./pagination";
 import RecipeCard from "./recipe-card";

@@ -1,7 +1,9 @@
-import { slugify } from '@/data/_helpers/slugify';
+
+import { slugify } from '@/data/_helpers/_utils';
 import { RecipeModel } from '@/data/_model/recipe.model';
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
-import { RecipesService } from '@/services/recipes.service';
+import RecipesService from '@/services/recipes.service';
+
 import { MetadataRoute } from 'next'
 
 

@@ -1,4 +1,4 @@
-import { RecipesService } from '@/services/recipes.service'
+
 import React from 'react'
 import { RecipeModel } from '@/data/_model/recipe.model'
 import CustomImg from '@/components/custom-img'
@@ -7,6 +7,7 @@ import { buttonVariants } from '@/components/ui/button'
 import type { Metadata, ResolvingMetadata } from 'next'
 import NoData from '@/components/no-data'
 import { extractId } from '@/data/_helpers/_utils'
+import RecipesService from '@/services/recipes.service'
 type Params = Promise<{ id: string }>
 
 

@@ -1,7 +1,9 @@
+"use server"
 import { QueryParamsType } from "@/data/_model/query.params.type";
-import { BaseService } from "./base.service";
+import BaseService from "./base.service";
 
-export class RecipesService extends BaseService {
+
+class RecipesService extends BaseService {
 
 
     static getAllRecipes(params?: QueryParamsType) {
@@ -29,3 +31,6 @@ export class RecipesService extends BaseService {
 
 
 }
+
+
+export default RecipesService;

@@ -1,6 +1,7 @@
+"use server"
 import { QueryParamsType } from "@/data/_model/query.params.type";
 
-export abstract class BaseService {
+abstract class BaseService {
     static baseUrl = 'https://dummyjson.com/recipes';
     static revalidateConfig = {
         next: {
@@ -21,9 +22,12 @@ export abstract class BaseService {
             ).toString();
 
             url = `${url}?${queryParams}`;
+            console.log(url);
         }
 
         const response = await fetch(url, config);
         return response.json();
     }
 }
+
+export default BaseService;

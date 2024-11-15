@@ -6,15 +6,18 @@ import TagList from "@/components/tag-list";
 import TrendingRecipes from "@/components/trending-recipes";
 import { Suspense } from "react";
 
-const foodTags = ['Italian', 'Indian']
+const foodTags = ['Italian', 'Indian', "Mexican"]
 
 export default async function Home() {
   return (
     <>
       <Hero />
-      <Suspense fallback={<SkeletonGrid numberOfCards={8} />}>
-        <TrendingRecipes />
-      </Suspense>
+      <div id="trending">
+        <Suspense fallback={<SkeletonGrid numberOfCards={8} />}>
+          <TrendingRecipes />
+        </Suspense>
+
+      </div>
 
 
       {foodTags?.map((tag) =>

@@ -1,5 +1,5 @@
 import { RecipeResponseModel } from "@/data/_model/recipe.response.model";
-import { RecipesService } from "@/services/recipes.service";
+
 import NoData from "./no-data";
 import Pagination from "./pagination";
 import RecipeCard from "./recipe-card";
@@ -7,6 +7,7 @@ import React from "react";
 import { QueryParamsType } from "@/data/_model/query.params.type";
 import recipeFilters from "@/data/_static/recipe.filters";
 import { itemsPerPage } from "@/data/_helpers/_utils";
+import RecipesService from "@/services/recipes.service";
 
 const RecipesByTagUi = async (props: {
     searchParams: QueryParamsType,

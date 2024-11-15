@@ -1,7 +1,8 @@
 import React from 'react'
-import { RecipesService } from '@/services/recipes.service';
+
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
 import SectionUi from './section-ui';
+import RecipesService from '@/services/recipes.service';
 
 const TrendingRecipes = async () => {
     const params = {
