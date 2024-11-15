@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         id="body"
-        className={`${josefinSans.className}  antialiased`}
+        className={`${josefinSans.className}  antialiased min-w-full`}
       >
         <ThemeProvider
           attribute="class"
