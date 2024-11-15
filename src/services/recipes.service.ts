@@ -1,26 +1,32 @@
-import { BaseService } from "./base.service";
+import { QueryParamsType } from "@/data/_model/query.params.type";
+import BaseService from "./base.service";
 
-export class RecipesService extends BaseService {
 
-    static getAllRecipes() {
-        return this.fetchData(this.baseUrl);
+class RecipesService extends BaseService {
+
+
+    static getAllRecipes(params?: QueryParamsType) {
+        return this.fetchData(this.baseUrl, params);
     }
 
-    static getRecipeById(id: string) {
+    static getRecipeById(id: number) {
         return this.fetchData(`${this.baseUrl}/${id}`);
     }
 
-    static searchRecipes(query: string) {
-        return this.fetchData(`${this.baseUrl}/search?q=${query}`);
+    static searchRecipes(params?: QueryParamsType) {
+        return this.fetchData(`${this.baseUrl}/search`, params);
     }
 
-    static getRecipesByTag(tag: string) {
-        return this.fetchData(`${this.baseUrl}/tag/${tag}`);
+    static getRecipesByTag(tag: string, params?: QueryParamsType) {
+        return this.fetchData(`${this.baseUrl}/tag/${tag}`, params);
+    }
+    static getTags(params?: QueryParamsType) {
+        return this.fetchData(`${this.baseUrl}/tags`, params);
     }
 
-    static getRecipesByMealType(mealType: string) {
-        return this.fetchData(`${this.baseUrl}/meal-type/${mealType}`);
-    }
 
 
 }
+
+
+export default RecipesService;

@@ -1,26 +1,37 @@
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
-import { RecipesService } from "@/services/recipes.service";
-import Link from "next/link";
+import FoodByTags from "@/components/food-by-tags";
+import Hero from "@/components/hero";
+import SkeletonGrid from "@/components/skeleton-grid";
+import SkeletonTags from "@/components/skeleton-tags";
+import TagList from "@/components/tag-list";
+import TrendingRecipes from "@/components/trending-recipes";
+import { Suspense } from "react";
+
+const foodTags = ['Italian', 'Indian', "Mexican"]
 
 export default async function Home() {
-  const data = await RecipesService.getAllRecipes();
   return (
-    <div>
-      Test
-      <ThemeToggle />
-      <Button>Button</Button>
+    <>
+      <Hero />
+      <div id="trending">
+        <Suspense fallback={<SkeletonGrid numberOfCards={8} />}>
+          <TrendingRecipes />
+        </Suspense>
 
-      {data?.recipes?.map((recipe: {
-        id: string;
-        name: string;
-      }) => {
-        return (
-          <Link href={`/recipe/${recipe.id}`} key={recipe.id}>
-            <h2>{recipe.name}</h2>
-          </Link>
-        );
-      })}
-    </div>
+      </div>
+
+
+      {foodTags?.map((tag) =>
+
+        <Suspense key={tag} fallback={<SkeletonGrid numberOfCards={8} />}>
+          <FoodByTags tag={tag} />
+        </Suspense>
+
+      )}
+      <Suspense fallback={<SkeletonTags numberOfTags={87} />}>
+        <TagList />
+      </Suspense>
+
+
+    </>
   );
 }
