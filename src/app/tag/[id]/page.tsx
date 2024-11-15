@@ -3,10 +3,10 @@ import RecipesByTagUi from '@/components/recipes-by-tags-ui';
 import SectionTitle from '@/components/section-title';
 import SkeletonRecipes from '@/components/skeleton-recipes';
 import { SearchParamsType } from '@/data/_model/searchparams.type';
+import { itemsPerPage } from '@/data/_static/items.per.page';
 import recipeFilters from '@/data/_static/recipe.filters';
 import React, { Suspense } from 'react'
 type Params = Promise<{ id: string }>
-
 const RecipesByTag = async (props: {
     searchParams: SearchParamsType,
     params: Params
@@ -27,7 +27,7 @@ const RecipesByTag = async (props: {
                     </div>
                 </div>
 
-                <Suspense key={JSON.stringify(searchParams)} fallback={<SkeletonRecipes numberOfCards={12} />}>
+                <Suspense key={JSON.stringify(searchParams)} fallback={<SkeletonRecipes numberOfCards={itemsPerPage} />}>
                     <RecipesByTagUi tag={params?.id} searchParams={searchParams} />
                 </Suspense>
 

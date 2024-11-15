@@ -6,6 +6,7 @@ import RecipeCard from "./recipe-card";
 import React from "react";
 import { QueryParamsType } from "@/data/_model/query.params.type";
 import recipeFilters from "@/data/_static/recipe.filters";
+import { itemsPerPage } from "@/data/_static/items.per.page";
 
 const RecipesUi = async (props: {
     searchParams: QueryParamsType
@@ -14,7 +15,6 @@ const RecipesUi = async (props: {
     const pageInUrl = searchParams?.page;
     const pageNumber = pageInUrl ? Number(pageInUrl) : 0;
     const isGreaterThanZero = pageNumber > 0;
-    const itemsPerPage = 12;
     const selectedOption = recipeFilters.filter(option => option?.id === searchParams?.sortBy)[0];
 
     const obj: {

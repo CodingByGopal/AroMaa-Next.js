@@ -4,6 +4,7 @@ import SearchInput from '@/components/search-input';
 import SectionTitle from '@/components/section-title';
 import SkeletonRecipes from '@/components/skeleton-recipes';
 import { SearchParamsType } from '@/data/_model/searchparams.type';
+import { itemsPerPage } from '@/data/_static/items.per.page';
 import recipeFilters from '@/data/_static/recipe.filters';
 import React, { Suspense } from 'react'
 
@@ -37,7 +38,7 @@ const Recipes = async (props: {
 
                 </div>
 
-                <Suspense key={JSON.stringify(searchParams)} fallback={<SkeletonRecipes numberOfCards={12} />}>
+                <Suspense key={JSON.stringify(searchParams)} fallback={<SkeletonRecipes numberOfCards={itemsPerPage} />}>
                     <RecipesUi searchParams={searchParams} />
                 </Suspense>
 
