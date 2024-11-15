@@ -70,7 +70,7 @@ const RecipeDetails = async (props: {
                             <h1 className='md:hidden left-line text-2xl mb-4  pl-4 font-medium leading-none '>{data?.name}</h1>
                             <div className="grid md:grid-cols-12 gap-6  ">
                                 <div className="md:col-span-4">
-                                    <div className='relative md:rounded-3xl sm:rounded-2xl rounded-xl md:aspect-square  aspect-video      overflow-hidden'>
+                                    <div className='relative md:rounded-3xl lg:h-full sm:rounded-2xl rounded-xl lg:aspect-auto md:aspect-square aspect-video     overflow-hidden'>
 
                                         <CustomImg src={data?.image} alt={`Image of ${data?.name}`} />
                                     </div>
