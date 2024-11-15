@@ -23,14 +23,6 @@ class RecipesService extends BaseService {
     static getTags(params?: QueryParamsType) {
         return this.fetchData(`${this.baseUrl}/tags`, params);
     }
-    static revalidateTetsing() {
-        return this.fetchData("https://672f137f229a881691f1c468.mockapi.io/Tetsing");
-    }
-
-    static revalidateTetsin2(id: string) {
-        return this.fetchData("https://672f137f229a881691f1c468.mockapi.io/Tetsing/" + id);
-    }
-
 
 
 }
