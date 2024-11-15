@@ -4,7 +4,7 @@ abstract class BaseService {
     static baseUrl = 'https://dummyjson.com/recipes';
     static revalidateConfig = {
         next: {
-            revalidate: 604800, // Revalidate every 7 days
+            revalidate: 15, // Revalidate every 7 days
         }
     };
 
