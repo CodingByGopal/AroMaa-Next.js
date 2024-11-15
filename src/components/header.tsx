@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import Logo from "./logo";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
-import { Button, buttonVariants } from "./ui/button";
-import { Book, GitFork, Home, Search, Text } from "lucide-react";
+import { Button } from "./ui/button";
+import { Book, GitFork, Home, Text } from "lucide-react";
 import MobileMenu from "./mobile-menu";
 
 const navigationOptions: NavigationOptionsModel[] = [
@@ -57,16 +57,8 @@ const Header = () => {
 
                         </nav>
                     </div>
-                    <div className=" md:flex hidden items-center gap-3">
-                        <Link className={buttonVariants({ variant: "secondary", size: "icon" })} href='/search'>
-
-                            <Search />
-                            <span className="sr-only">Search Recipe</span>
-                        </Link>
-                        <div >
-                            <ThemeToggle />
-                        </div>
-
+                    <div className=" md:block hidden ">
+                        <ThemeToggle />
                     </div>
 
                     <div className=" md:hidden  block">

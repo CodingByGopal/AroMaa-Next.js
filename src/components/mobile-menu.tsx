@@ -12,7 +12,6 @@ import Link from "next/link"
 import React, { useState } from "react"
 import { NavigationOptionsModel } from "@/data/_model/navigation.options.model"
 import Logo from "./logo"
-import { Search } from "lucide-react"
 
 const MobileMenu = (props: {
     children: React.ReactNode,
@@ -20,7 +19,6 @@ const MobileMenu = (props: {
     pathName: string
 }) => {
     const [open, setOpen] = useState<boolean>(false);
-    const newNav: NavigationOptionsModel[] = [...props.navigationOptions, { label: 'Search', path: '/search', icon: <Search /> }]
     return (
         <Sheet open={open} onOpenChange={setOpen} >
             <SheetTrigger asChild>
@@ -38,7 +36,7 @@ const MobileMenu = (props: {
                 <div className=" text-base font-medium mb-4">
 
 
-                    {newNav?.map((item, i) => {
+                    {props?.navigationOptions?.map((item, i) => {
                         return <Link key={i} rel={item?.rel} target={item?.target} href={item?.path} onClick={() => setOpen(false)}
                             className={`  flex items-center gap-3 transition-all duration-300 px-6 py-3 
                                  ${props?.pathName === item.path ? " bg-accent/60" :

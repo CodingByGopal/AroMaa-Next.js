@@ -35,7 +35,7 @@ const RecipeDetails = async (props: {
                                     <div className=' flex flex-wrap gap-2  md:mt-6 mt-0  items-center'>
                                         {data?.tags?.map(tag => <Link
                                             className={buttonVariants({ variant: "outline", size: "sm", className: " text-foreground/80 bg-secondary" })}
-                                            href={`/categories/${tag}`} key={tag}>
+                                            href={`/tag/${tag}`} key={tag}>
                                             {tag}
                                         </Link>)}
 
