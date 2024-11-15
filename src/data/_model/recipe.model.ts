@@ -15,4 +15,6 @@ export interface RecipeModel {
     rating: number;
     reviewCount: number;
     mealType: string[];
+
+    message?: string;
 }

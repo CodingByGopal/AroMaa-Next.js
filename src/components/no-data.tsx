@@ -1,5 +1,5 @@
 "use client"
-import { MoveLeft, UtensilsCrossed } from 'lucide-react'
+import { UtensilsCrossed } from 'lucide-react'
 import React from 'react'
 import { Button, } from './ui/button'
 import { useRouter } from 'next/navigation'
@@ -18,7 +18,7 @@ const NoData = (props: {
                 <UtensilsCrossed strokeWidth={1} className=' md:w-24 md:h-24 w-16 h-16' />
             </div>
             <p className=' text-lg mb-8 '>{props?.message}</p>
-            <Button onClick={onClickBack}> <MoveLeft /> Back</Button>
+            <Button onClick={onClickBack}> Retrun</Button>
 
 
         </div>
