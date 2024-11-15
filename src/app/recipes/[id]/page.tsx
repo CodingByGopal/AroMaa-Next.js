@@ -4,7 +4,39 @@ import { RecipeModel } from '@/data/_model/recipe.model'
 import CustomImg from '@/components/custom-img'
 import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
+import type { Metadata, ResolvingMetadata } from 'next'
 type Params = Promise<{ id: string }>
+
+
+export async function generateMetadata(
+    props: {
+        params: Params,
+
+    },
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+    const params = await props?.params;
+    const data: RecipeModel = await RecipesService.getRecipeById(params?.id);
+
+    // optionally access and extend (rather than replace) parent metadata
+    const previousImages = (await parent)?.openGraph?.images || [];
+    const previousKeywords = (await parent)?.keywords || [];
+    return {
+        title: data?.name ?? "Recipe",
+        keywords: [...(data?.tags ?? []), ...previousKeywords],
+        openGraph: {
+            images: [data?.image ?? "", ...previousImages],
+        },
+        alternates: {
+            canonical: `/recipes/${data?.id}`
+        },
+    }
+}
+
+
+
+
+
 const breakLinesAt = 7;
 const RecipeDetails = async (props: {
     params: Params

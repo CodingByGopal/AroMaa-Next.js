@@ -11,6 +11,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: 'Recipes',
     description: "Discover a variety of delicious recipes, search by ingredients, and sort by your favorite filters.",
+    keywords: ["szxnnas"],
     alternates: {
         canonical: `/recipes`
     },
