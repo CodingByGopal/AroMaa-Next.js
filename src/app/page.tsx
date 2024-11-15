@@ -1,5 +1,6 @@
 import FoodByTags from "@/components/food-by-tags";
 import Hero from "@/components/hero";
+import { RenderedTimeAgo } from "@/components/rendered-time-ago";
 import SkeletonGrid from "@/components/skeleton-grid";
 import SkeletonTags from "@/components/skeleton-tags";
 import TagList from "@/components/tag-list";
@@ -12,6 +13,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
+      <RenderedTimeAgo timestamp={Date.now()} />
       <div id="trending">
         <Suspense fallback={<SkeletonGrid numberOfCards={8} />}>
           <TrendingRecipes />

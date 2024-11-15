@@ -8,6 +8,7 @@ import recipeFilters from '@/data/_static/recipe.filters';
 import React, { Suspense } from 'react'
 import type { Metadata } from "next";
 import { itemsPerPage } from '@/data/_helpers/_utils';
+import { RenderedTimeAgo } from '@/components/rendered-time-ago';
 export const metadata: Metadata = {
     title: 'Recipes',
     description: "Discover a variety of delicious recipes, search by ingredients, and sort by your favorite filters.",
@@ -31,6 +32,7 @@ const Recipes = async (props: {
             <div className="container">
                 <div className=' mb-8 flex gap-4 sm:flex-row flex-col justify-between sm:items-center'>
                     <SectionTitle title='Recipes' />
+                    <RenderedTimeAgo timestamp={Date.now()} />
 
                     <div className='  flex sm:flex-row flex-col gap-4 sm:items-center'>
                         <div className=' sm:min-w-60'>

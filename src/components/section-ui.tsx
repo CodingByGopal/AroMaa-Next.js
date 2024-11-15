@@ -2,6 +2,7 @@ import React from 'react'
 import RecipeCard from './recipe-card'
 import { RecipeModel } from '@/data/_model/recipe.model'
 import SectionTitle from './section-title'
+import { RenderedTimeAgo } from './rendered-time-ago'
 
 const SectionUi = (props: {
     recipes: RecipeModel[],
@@ -12,6 +13,7 @@ const SectionUi = (props: {
             <div className="container">
                 <div className=' mb-8'>
                     <SectionTitle title={props?.title} />
+                    <RenderedTimeAgo timestamp={Date.now()} />
                 </div>
 
                 <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">

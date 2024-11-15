@@ -8,6 +8,7 @@ import type { Metadata, ResolvingMetadata } from 'next'
 import NoData from '@/components/no-data'
 import { extractId } from '@/data/_helpers/_utils'
 import RecipesService from '@/services/recipes.service'
+import { RenderedTimeAgo } from '@/components/rendered-time-ago'
 type Params = Promise<{ id: string }>
 
 
@@ -76,6 +77,7 @@ const RecipeDetails = async (props: {
                                     </div>
                                 </div>
 
+                                <RenderedTimeAgo timestamp={Date.now()} />
                                 <div className=' md:col-span-8 recipe-card'>
 
                                     <>
