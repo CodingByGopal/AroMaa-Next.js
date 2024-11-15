@@ -6,7 +6,7 @@ import RecipeCard from "./recipe-card";
 import React from "react";
 import { QueryParamsType } from "@/data/_model/query.params.type";
 import recipeFilters from "@/data/_static/recipe.filters";
-import { itemsPerPage } from "@/data/_static/items.per.page";
+import { itemsPerPage } from "@/data/_helpers/_utils";
 
 const RecipesByTagUi = async (props: {
     searchParams: QueryParamsType,

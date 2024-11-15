@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import type { Metadata, ResolvingMetadata } from 'next'
 import NoData from '@/components/no-data'
-import { extractId } from '@/data/_helpers/slugify'
+import { extractId } from '@/data/_helpers/_utils'
 type Params = Promise<{ id: string }>
 
 

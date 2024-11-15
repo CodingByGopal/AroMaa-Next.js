@@ -2,8 +2,8 @@ import { CustomSelect } from '@/components/custom-select';
 import RecipesByTagUi from '@/components/recipes-by-tags-ui';
 import SectionTitle from '@/components/section-title';
 import SkeletonRecipes from '@/components/skeleton-recipes';
+import { itemsPerPage } from '@/data/_helpers/_utils';
 import { SearchParamsType } from '@/data/_model/searchparams.type';
-import { itemsPerPage } from '@/data/_static/items.per.page';
 import recipeFilters from '@/data/_static/recipe.filters';
 import { Metadata } from 'next';
 import React, { Suspense } from 'react'
