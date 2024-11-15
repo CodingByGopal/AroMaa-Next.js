@@ -5,8 +5,31 @@ import SkeletonRecipes from '@/components/skeleton-recipes';
 import { SearchParamsType } from '@/data/_model/searchparams.type';
 import { itemsPerPage } from '@/data/_static/items.per.page';
 import recipeFilters from '@/data/_static/recipe.filters';
+import { Metadata } from 'next';
 import React, { Suspense } from 'react'
 type Params = Promise<{ id: string }>
+
+
+export async function generateMetadata(
+    props: {
+        params: Params,
+
+    },
+): Promise<Metadata> {
+    const params = await props?.params;
+
+    return {
+        title: params?.id,
+        description: `Discover delicious recipes tagged with ${decodeURIComponent(params?.id)}. Explore a variety of dishes and find your next favorite meal.`,
+        openGraph: {
+            images: ['/images/recipes-og.png'],
+        },
+        alternates: {
+            canonical: `/tag/${params?.id}`
+        },
+    }
+}
+
 const RecipesByTag = async (props: {
     searchParams: SearchParamsType,
     params: Params
