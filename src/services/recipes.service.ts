@@ -1,4 +1,3 @@
-"use server"
 import { QueryParamsType } from "@/data/_model/query.params.type";
 import BaseService from "./base.service";
 
@@ -25,9 +24,6 @@ class RecipesService extends BaseService {
         return this.fetchData(`${this.baseUrl}/tags`, params);
     }
 
-    static getRecipesByMealType(mealType: string, params?: QueryParamsType) {
-        return this.fetchData(`${this.baseUrl}/meal-type/${mealType}`, params);
-    }
 
 
 }

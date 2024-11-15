@@ -1,4 +1,3 @@
-"use server"
 import { QueryParamsType } from "@/data/_model/query.params.type";
 
 abstract class BaseService {
@@ -22,7 +21,7 @@ abstract class BaseService {
             ).toString();
 
             url = `${url}?${queryParams}`;
-            console.log(url);
+
         }
 
         const response = await fetch(url, config);
