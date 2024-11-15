@@ -6,7 +6,7 @@ const RecipeLoading = () => {
         <section className=' pt-8'>
             <div className='container'>
                 <div className='mb-6'>
-                    <Skeleton className=" dark:bg-secondary bg-background h-6 w-[200px] mb-4 md:hidden" />
+                    <Skeleton className=" bg-secondary  h-6 w-[200px] mb-4 md:hidden" />
                     <div className="grid md:grid-cols-12 gap-6">
                         <div className="md:col-span-4">
                             <div className='relative md:rounded-3xl lg:h-full sm:rounded-2xl rounded-xl lg:aspect-auto md:aspect-square aspect-video     overflow-hidden'>

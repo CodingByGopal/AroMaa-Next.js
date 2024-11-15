@@ -43,7 +43,17 @@ const Header = () => {
                 <div className=" flex  justify-between items-center gap-5  py-3">
 
 
-                    <div className=" flex items-center gap-6">
+                    <div className=" flex items-center md:gap-6 gap-3">
+                        <div className=" md:hidden  block">
+                            <MobileMenu pathName={pathname} navigationOptions={navigationOptions} >
+                                <Button variant='secondary' size='icon'>
+                                    <Text className=" !w-5 !h-5" />
+                                    <span className="sr-only">Mobile Menu Button</span>
+                                </Button>
+                            </MobileMenu>
+
+
+                        </div>
                         <Logo />
                         <nav className=" border-l-2 border-border pl-6 hidden md:flex items-center gap-5 font-semibold text-base">
                             {navigationOptions.map((navOption, index) => (
@@ -57,19 +67,12 @@ const Header = () => {
 
                         </nav>
                     </div>
-                    <div className=" md:block hidden ">
+
+
+                    <div className=" flex-none">
                         <ThemeToggle />
                     </div>
 
-                    <div className=" md:hidden  block">
-                        <MobileMenu pathName={pathname} navigationOptions={navigationOptions} >
-                            <Button variant='secondary' size='icon'>
-                                <Text className=" !w-5 !h-5" />
-                                <span className="sr-only">Mobile Menu Button</span>
-                            </Button>
-                        </MobileMenu>
-
-                    </div>
 
                 </div>
 

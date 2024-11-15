@@ -2,7 +2,7 @@ const Footer = () => {
     return (
         <footer className='md:mt-14 mt-8 p-6 border-y border-secondary dark:bg-secondary/40 bg-secondary text-center'>
             <div className="container">
-                <div className="text-foreground/60 flex flex-col sm:flex-row items-center gap-2 justify-center">
+                <div className="text-foreground/80 flex flex-col sm:flex-row items-center gap-2 justify-center">
                     <p>
                         &#169; Made by{" "}
                         <a
