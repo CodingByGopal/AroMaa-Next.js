@@ -7,9 +7,11 @@ import React from "react";
 import { QueryParamsType } from "@/data/_model/query.params.type";
 import recipeFilters from "@/data/_static/recipe.filters";
 
-const RecipeUi = async (props: {
-    searchParams: QueryParamsType
+const RecipesByTagUi = async (props: {
+    searchParams: QueryParamsType,
+    tag: string
 }) => {
+    const tag = props?.tag;
     const searchParams = props?.searchParams;
     const pageInUrl = searchParams?.page;
     const pageNumber = pageInUrl ? Number(pageInUrl) : 0;
@@ -43,7 +45,7 @@ const RecipeUi = async (props: {
         delete obj.q;
     }
 
-    const data: RecipeResponseModel = await RecipesService.searchRecipes(obj);
+    const data: RecipeResponseModel = await RecipesService.getRecipesByTag(tag, obj);
     const recipes = data?.recipes ?? [];
     const totalPages = Math.ceil(data?.total / itemsPerPage);
     const currentPage = isGreaterThanZero ? Math.min(pageNumber, totalPages) : 1;
@@ -71,4 +73,4 @@ const RecipeUi = async (props: {
     )
 }
 
-export default RecipeUi;
+export default RecipesByTagUi;

@@ -1,5 +1,5 @@
 import { CustomSelect } from '@/components/custom-select';
-import RecipeUi from '@/components/recipe-ui';
+import RecipesUi from '@/components/recipes-ui';
 import SearchInput from '@/components/search-input';
 import SectionTitle from '@/components/section-title';
 import SkeletonRecipes from '@/components/skeleton-recipes';
@@ -38,7 +38,7 @@ const Recipes = async (props: {
                 </div>
 
                 <Suspense key={JSON.stringify(searchParams)} fallback={<SkeletonRecipes numberOfCards={12} />}>
-                    <RecipeUi searchParams={searchParams} />
+                    <RecipesUi searchParams={searchParams} />
                 </Suspense>
 
 
