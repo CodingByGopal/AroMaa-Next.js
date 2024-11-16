@@ -2,7 +2,7 @@
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
 import SectionUi from './section-ui';
 import RecipesService from '@/services/recipes.service';
-import { RenderedTimeAgo } from './rendered-time-ago';
+
 
 const FoodByTags = async (props: {
     tag: string,
@@ -18,10 +18,7 @@ const FoodByTags = async (props: {
     const recipes = data?.recipes;
     if (!recipes || recipes?.length === 0) return null;
     return (
-        <div>
-            <RenderedTimeAgo timestamp={Date.now()} />
-            <SectionUi recipes={recipes} title={props?.tag} />
-        </div>
+        <SectionUi recipes={recipes} title={props?.tag} />
 
     )
 }

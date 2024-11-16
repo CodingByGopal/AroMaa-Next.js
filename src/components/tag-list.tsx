@@ -2,7 +2,7 @@ import RecipesService from "@/services/recipes.service"
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import SectionTitle from "./section-title";
-import { RenderedTimeAgo } from "./rendered-time-ago";
+
 const TagList = async () => {
     const data: string[] = await RecipesService.getTags();
 
@@ -13,7 +13,6 @@ const TagList = async () => {
             <div className="container">
                 <div className=' mb-8'>
                     <SectionTitle title='Want More?' />
-                    <RenderedTimeAgo timestamp={Date.now()} />
                 </div>
                 <div className=" flex flex-wrap items-center gap-2">
                     {data?.map(tag => <Link

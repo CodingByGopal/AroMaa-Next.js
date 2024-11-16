@@ -7,7 +7,6 @@ import React from "react";
 import { QueryParamsType } from "@/data/_model/query.params.type";
 import recipeFilters from "@/data/_static/recipe.filters";
 import { itemsPerPage } from "@/data/_helpers/_utils";
-import { RenderedTimeAgo } from "./rendered-time-ago";
 
 const RecipesUi = async (props: {
     searchParams: QueryParamsType
@@ -53,14 +52,16 @@ const RecipesUi = async (props: {
             {recipes?.length === 0 ?
                 <NoData message='No Recipes Found' /> :
                 <>
-                    <RenderedTimeAgo timestamp={Date.now()} />
-                    <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
-                        {recipes?.map((recipe) => (
-                            <React.Fragment key={recipe.id} >
-                                <RecipeCard recipe={recipe} />
-                            </React.Fragment>
-                        ))}
+                    <div className=" sm:min-h-[500px]">
+                        <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
+                            {recipes?.map((recipe) => (
+                                <React.Fragment key={recipe.id} >
+                                    <RecipeCard recipe={recipe} />
+                                </React.Fragment>
+                            ))}
+                        </div>
                     </div>
+
                     <div className=' mt-8'>
                         <Pagination currentPage={currentPage} totalPages={totalPages} />
                     </div>

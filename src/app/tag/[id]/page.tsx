@@ -1,6 +1,5 @@
 import { CustomSelect } from '@/components/custom-select';
 import RecipesByTagUi from '@/components/recipes-by-tags-ui';
-import { RenderedTimeAgo } from '@/components/rendered-time-ago';
 import SectionTitle from '@/components/section-title';
 import SkeletonRecipes from '@/components/skeleton-recipes';
 import { itemsPerPage } from '@/data/_helpers/_utils';
@@ -43,7 +42,6 @@ const RecipesByTag = async (props: {
             <div className="container">
                 <div className=' mb-8 flex gap-4 sm:flex-row flex-col justify-between sm:items-center'>
                     <SectionTitle title={decodeURIComponent(params?.id)} />
-                    <RenderedTimeAgo timestamp={Date.now()} />
                     <div className=' sm:min-w-60'>
                         <CustomSelect
                             defaultValue={selectedOption?.id}
