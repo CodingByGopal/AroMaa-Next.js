@@ -1,4 +1,5 @@
-html,body {
+html,
+body {
     overflow-x: hidden;
     scroll-behavior: smooth;
     scroll-padding: 4rem;
@@ -6,7 +7,9 @@ html,body {
 }
 
 @media (max-width: 768px) {
-    html,body {
+
+    html,
+    body {
 
         scroll-padding: 2.5rem;
     }
@@ -48,6 +51,6 @@ input[type=number] {
 
 }
 
-.recipe-card{
-    @apply dark:bg-secondary/40 bg-secondary border border-secondary md:p-8 p-6  rounded-[2.25rem] 
+.recipe-card {
+    @apply dark:bg-secondary/40 bg-secondary border border-secondary md:p-8 p-6 md:rounded-3xl sm:rounded-2xl rounded-xl
 }

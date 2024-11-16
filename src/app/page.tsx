@@ -1,6 +1,5 @@
 import FoodByTags from "@/components/food-by-tags";
 import Hero from "@/components/hero";
-import { RenderedTimeAgo } from "@/components/rendered-time-ago";
 import SkeletonGrid from "@/components/skeleton-grid";
 import SkeletonTags from "@/components/skeleton-tags";
 import TagList from "@/components/tag-list";
@@ -8,7 +7,7 @@ import TrendingRecipes from "@/components/trending-recipes";
 import { Suspense } from "react";
 
 
-export const revalidate = 60;
+export const revalidate = 604800; // revalidate every 7 days
 
 const foodTags = ['Italian', 'Indian', "Mexican"];
 
@@ -16,7 +15,6 @@ const foodTags = ['Italian', 'Indian', "Mexican"];
 export default async function Home() {
   return (
     <>
-      <RenderedTimeAgo timestamp={Date.now()} />
       <Hero />
       <div id="trending">
         <Suspense fallback={<SkeletonGrid numberOfCards={8} />}>
