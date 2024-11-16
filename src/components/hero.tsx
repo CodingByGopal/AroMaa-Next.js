@@ -1,7 +1,7 @@
 import { buttonVariants } from "./ui/button";
 import Image from "next/image";
 import hero from "../../public/images/hero.jpg";
-import { MoveRight } from "lucide-react";
+import { Salad } from "lucide-react";
 import Link from "next/link";
 
 
@@ -18,16 +18,14 @@ const Hero = () => {
 
                         </p>
                         <div className=" flex sm:flex-row flex-col sm:items-center gap-4 justify-center">
-                            <Link href="/recipes" className={buttonVariants({ variant: 'default' })}>
+                            <Link href="/recipes" className={buttonVariants({ variant: 'default', })}>
                                 Get Cooking
-
-                                <MoveRight />
+                                <Salad className="-ml-[1px] -mt-1 !w-5 !h-5" />
                             </Link>
 
                             <Link href="/#trending" className={buttonVariants({ variant: 'secondary' })}>
                                 View More
 
-                                <MoveRight />
                             </Link>
 
 
