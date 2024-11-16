@@ -83,7 +83,7 @@ const RecipeDetails = async (props: {
                             <h1 className='md:hidden left-line text-2xl mb-4  pl-4 font-medium leading-none '>{data?.name}</h1>
                             <div className="grid md:grid-cols-12 gap-6  ">
                                 <div className="md:col-span-4">
-                                    <div className='relative md:rounded-3xl lg:h-full sm:rounded-2xl rounded-xl lg:aspect-auto md:aspect-square aspect-video     overflow-hidden'>
+                                    <div className='relative lg:h-full recipe-card lg:aspect-auto md:aspect-square aspect-video     overflow-hidden'>
 
                                         <CustomImg src={data?.image} alt={`Image of ${data?.name}`} />
                                     </div>
@@ -109,8 +109,8 @@ const RecipeDetails = async (props: {
                                             <div className='  mt-6'>
                                                 <h2 className=' mb-4 text-xl font-medium md:block hidden '>Instructions</h2>
 
-                                                <ul className=' text-balance pl-4  list-disc sm:space-y-1 space-y-2  text-foreground/80 '>
-                                                    {data?.instructions?.map(instruction => <li key={instruction}>{instruction}</li>)}
+                                                <ul className=' text-balance sm:pl-4 pl-2  list-disc sm:space-y-1 space-y-2  text-foreground/80 '>
+                                                    {data?.instructions?.map(instruction => <li className=' text-base' key={instruction}>{instruction}</li>)}
                                                 </ul>
 
                                             </div> :
@@ -124,7 +124,7 @@ const RecipeDetails = async (props: {
 
                             <div className='recipe-card'>
                                 <h2 className=' left-line pl-4  mb-4 text-xl font-medium'>Overview</h2>
-                                <ul className=' [&>li>span]:font-semibold text-foreground/80  pl-4 list-disc sm:space-y-1 space-y-2 '>
+                                <ul className=' [&>li>span]:font-semibold text-foreground/80 sm:pl-4 pl-2 list-disc space-y-1 '>
 
                                     <li><span >Prepration Time : </span> {data?.prepTimeMinutes ? `${data?.prepTimeMinutes} Mins` : '--'}</li>
                                     <li><span >Cooking Time : </span> {data?.cookTimeMinutes ? `${data?.cookTimeMinutes} Mins` : '--'}</li>
@@ -147,7 +147,7 @@ const RecipeDetails = async (props: {
                                     {cols?.map(col => (
                                         <ul
                                             key={col}
-                                            className=' pl-3 list-disc sm:space-y-1 space-y-2 text-foreground/80'
+                                            className=' pl-3 list-disc sm:space-y-1 space-y-1 text-foreground/80'
                                         >
                                             {data?.ingredients?.slice(col * breakLinesAt, col * breakLinesAt + breakLinesAt)?.map(ingredient => (
                                                 <li key={ingredient}>{ingredient}</li>
