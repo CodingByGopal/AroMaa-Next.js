@@ -35,8 +35,8 @@ export function CustomSelect(props: CustomSelectType) {
 
     return (
         <Select defaultValue={props?.defaultValue} onValueChange={onChange}>
-            <SelectTrigger name="Select Recipe Filters">
-                <SelectValue placeholder={props?.placeholder || "Select an option"} />
+            <SelectTrigger aria-label={props?.placeholder} >
+                <SelectValue placeholder={props?.placeholder} />
             </SelectTrigger>
             <SelectContent>
                 <SelectGroup>

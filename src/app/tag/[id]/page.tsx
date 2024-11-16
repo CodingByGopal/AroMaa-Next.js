@@ -47,7 +47,7 @@ const RecipesByTag = async (props: {
                     <div className=' sm:min-w-60'>
                         <CustomSelect
                             defaultValue={selectedOption?.id}
-                            placeholder='Sort By'
+                            placeholder='Filter Recipes By'
                             options={recipeFilters} />
                     </div>
                 </div>
