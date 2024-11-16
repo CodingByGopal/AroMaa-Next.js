@@ -7,6 +7,8 @@ import { SearchParamsType } from '@/data/_model/searchparams.type';
 import recipeFilters from '@/data/_static/recipe.filters';
 import { Metadata } from 'next';
 import React, { Suspense } from 'react'
+
+
 type Params = Promise<{ id: string }>
 
 

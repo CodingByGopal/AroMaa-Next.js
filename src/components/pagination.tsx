@@ -91,30 +91,8 @@ const Pagination = (props: PaginationPropsType) => {
     }, [props?.currentPage])
 
     return (
-        <div className="flex flex-wrap items-center  md:justify-end justify-center  md:gap-3 gap-2">
-            <Button
-                aria-label='Pagination button to navigate to first page'
-                size='icon'
-                variant="secondary"
-                className=' flex-none'
-                disabled={props.currentPage === 1}
-                onClick={() => pageChangeByNavigation('JUMP_TO_FIRST')}
-            >
-                <ChevronsLeft />
-
-
-            </Button>
-            <Button
-                aria-label='Pagination button to navigate to previous page'
-                size='icon'
-                variant="secondary"
-                className=' flex-none'
-                disabled={props.currentPage === 1}
-                onClick={() => pageChangeByNavigation('PREV')}
-            >
-                <ChevronLeft />
-            </Button>
-            <div className="gap-3 sm:text-base text-sm flex items-center">
+        <div className=' sm:block flex justify-center items-center gap-4 flex-col'>
+            <div className="gap-3 sm:text-base text-sm sm:hidden flex items-center">
                 <label htmlFor='page'>Page</label>
                 <Input
                     id='page'
@@ -128,27 +106,67 @@ const Pagination = (props: PaginationPropsType) => {
                 />
                 <span className=' whitespace-nowrap text-foreground'> of {props.totalPages}</span>
             </div>
-            <Button
-                aria-label='Pagination button to navigate to next page'
-                size='icon'
-                variant="secondary"
-                className=' flex-none'
-                disabled={props.currentPage >= props.totalPages}
-                onClick={() => pageChangeByNavigation('NEXT')}
-            >
-                <ChevronRight />
-            </Button>
-            <Button
-                aria-label='Pagination button to navigate to last page'
-                size='icon'
-                variant="secondary"
-                className=' flex-none'
-                disabled={props.currentPage >= props.totalPages}
-                onClick={() => pageChangeByNavigation('JUMP_TO_LAST')}
-            >
-                <ChevronsRight />
-            </Button>
+
+            <div className="flex flex-wrap items-center  md:justify-end justify-center  gap-3 ">
+                <Button
+                    aria-label='Pagination button to navigate to first page'
+                    size='icon'
+                    variant="secondary"
+                    className=' flex-none'
+                    disabled={props.currentPage === 1}
+                    onClick={() => pageChangeByNavigation('JUMP_TO_FIRST')}
+                >
+                    <ChevronsLeft />
+
+
+                </Button>
+                <Button
+                    aria-label='Pagination button to navigate to previous page'
+                    size='icon'
+                    variant="secondary"
+                    className=' flex-none'
+                    disabled={props.currentPage === 1}
+                    onClick={() => pageChangeByNavigation('PREV')}
+                >
+                    <ChevronLeft />
+                </Button>
+                <div className="gap-3 sm:text-base text-sm sm:flex hidden items-center">
+                    <label htmlFor='page'>Page</label>
+                    <Input
+                        id='page'
+                        className="sm:w-16 w-12 text-center  bg-secondary  border-0 flex-none  "
+                        value={pageNumber}
+                        min={1}
+                        type="number"
+
+                        onKeyDown={onkeydownHandler}
+                        onChange={inputOnChangeHandler}
+                    />
+                    <span className=' whitespace-nowrap text-foreground'> of {props.totalPages}</span>
+                </div>
+                <Button
+                    aria-label='Pagination button to navigate to next page'
+                    size='icon'
+                    variant="secondary"
+                    className=' flex-none'
+                    disabled={props.currentPage >= props.totalPages}
+                    onClick={() => pageChangeByNavigation('NEXT')}
+                >
+                    <ChevronRight />
+                </Button>
+                <Button
+                    aria-label='Pagination button to navigate to last page'
+                    size='icon'
+                    variant="secondary"
+                    className=' flex-none'
+                    disabled={props.currentPage >= props.totalPages}
+                    onClick={() => pageChangeByNavigation('JUMP_TO_LAST')}
+                >
+                    <ChevronsRight />
+                </Button>
+            </div>
         </div>
+
 
     );
 };

@@ -6,8 +6,11 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import type { Metadata, ResolvingMetadata } from 'next'
 import NoData from '@/components/no-data'
-import { extractId } from '@/data/_helpers/_utils'
+import { extractId, itemsPerPage, slugify } from '@/data/_helpers/_utils'
 import RecipesService from '@/services/recipes.service'
+import { RecipeResponseModel } from '@/data/_model/recipe.response.model'
+
+
 type Params = Promise<{ id: string }>
 
 
@@ -50,6 +53,16 @@ export async function generateMetadata(
 
 
 }
+// generatign static pages for 'limit: itemsPerPage-> Eg. 12'  and revalidating every 60 seconds. Dynamic params are enabled too
+export const revalidate = 60
+export const dynamicParams = true;
+export async function generateStaticParams() {
+    const recipesResponse: RecipeResponseModel = await RecipesService.getAllRecipes({ limit: itemsPerPage, select: "name" })
+    const recipes = recipesResponse.recipes;
+    const ids = recipes.map(recipe => ({ id: `${slugify(recipe?.name)}-${recipe?.id}` }))
+    return ids;
+}
+
 
 const RecipeDetails = async (props: {
     params: Params
@@ -103,10 +116,6 @@ const RecipeDetails = async (props: {
                                             </div> :
                                             null}
                                     </>
-
-
-
-
                                 </div>
                             </div>
                         </div>

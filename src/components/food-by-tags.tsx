@@ -3,6 +3,7 @@ import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
 import SectionUi from './section-ui';
 import RecipesService from '@/services/recipes.service';
 
+
 const FoodByTags = async (props: {
     tag: string,
 
@@ -18,6 +19,7 @@ const FoodByTags = async (props: {
     if (!recipes || recipes?.length === 0) return null;
     return (
         <SectionUi recipes={recipes} title={props?.tag} />
+
     )
 }
 

@@ -52,13 +52,16 @@ const RecipesUi = async (props: {
             {recipes?.length === 0 ?
                 <NoData message='No Recipes Found' /> :
                 <>
-                    <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
-                        {recipes?.map((recipe) => (
-                            <React.Fragment key={recipe.id} >
-                                <RecipeCard recipe={recipe} />
-                            </React.Fragment>
-                        ))}
+                    <div className=" sm:min-h-[500px]">
+                        <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
+                            {recipes?.map((recipe) => (
+                                <React.Fragment key={recipe.id} >
+                                    <RecipeCard recipe={recipe} />
+                                </React.Fragment>
+                            ))}
+                        </div>
                     </div>
+
                     <div className=' mt-8'>
                         <Pagination currentPage={currentPage} totalPages={totalPages} />
                     </div>

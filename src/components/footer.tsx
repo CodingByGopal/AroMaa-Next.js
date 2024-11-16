@@ -1,8 +1,8 @@
 const Footer = () => {
     return (
-        <footer className='md:mt-14 mt-8 p-6 border-y border-secondary dark:bg-secondary/40 bg-secondary text-center'>
+        <footer className='md:mt-14 mt-8 md:p-6 p-4 border-y border-secondary dark:bg-secondary/40 bg-secondary text-sm text-center'>
             <div className="container">
-                <div className="text-foreground/80 flex flex-col sm:flex-row items-center gap-2 justify-center">
+                <div className="text-foreground/80 flex flex-col sm:flex-row items-center sm:gap-2 gap-1 justify-center">
                     <p>
                         &#169; Made by{" "}
                         <a
@@ -15,7 +15,7 @@ const Footer = () => {
                         </a>{" "}
                         with
                     </p>
-                    <div className="flex items-center gap-1 justify-center mt-2 sm:mt-0">
+                    <div className="flex items-center gap-1 justify-center ">
                         <a
                             className="text-foreground hover:underline hover:underline-offset-4"
                             href="https://nextjs.org/"

@@ -3,6 +3,7 @@ import RecipeCard from './recipe-card'
 import { RecipeModel } from '@/data/_model/recipe.model'
 import SectionTitle from './section-title'
 
+
 const SectionUi = (props: {
     recipes: RecipeModel[],
     title: string
