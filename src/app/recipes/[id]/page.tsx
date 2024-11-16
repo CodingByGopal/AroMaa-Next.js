@@ -9,6 +9,7 @@ import NoData from '@/components/no-data'
 import { extractId, itemsPerPage, slugify } from '@/data/_helpers/_utils'
 import RecipesService from '@/services/recipes.service'
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model'
+import { RenderedTimeAgo } from '@/components/rendered-time-ago'
 
 
 type Params = Promise<{ id: string }>
@@ -80,6 +81,7 @@ const RecipeDetails = async (props: {
                 {data.message ? <NoData message={data?.message ?? ""} /> :
                     <>
                         <div className='  mb-6 '>
+                            <RenderedTimeAgo timestamp={Date.now()} />
                             <h1 className='md:hidden left-line text-2xl mb-4  pl-4 font-medium leading-none '>{data?.name}</h1>
                             <div className="grid md:grid-cols-12 gap-6  ">
                                 <div className="md:col-span-4">
