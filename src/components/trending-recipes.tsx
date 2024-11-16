@@ -3,6 +3,7 @@ import React from 'react'
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
 import SectionUi from './section-ui';
 import RecipesService from '@/services/recipes.service';
+import { RenderedTimeAgo } from './rendered-time-ago';
 
 const TrendingRecipes = async () => {
     const params = {
@@ -17,7 +18,11 @@ const TrendingRecipes = async () => {
     const recipes = data?.recipes;
     if (!recipes || recipes?.length === 0) return null;
     return (
-        <SectionUi recipes={recipes} title='Trending' />
+        <div>
+            <RenderedTimeAgo timestamp={Date.now()} />
+            <SectionUi recipes={recipes} title='Trending' />
+        </div>
+
     )
 }
 

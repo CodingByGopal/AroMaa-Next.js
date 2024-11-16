@@ -1,29 +1,37 @@
+import { getUrl } from "@/data/_helpers/_utils";
 import { QueryParamsType } from "@/data/_model/query.params.type";
-import BaseService from "./base.service";
 
 
-class RecipesService extends BaseService {
-
-
-    static getAllRecipes(params?: QueryParamsType) {
-        return this.fetchData(this.baseUrl, params);
+class RecipesService {
+    static async getAllRecipes(params: QueryParamsType = {}) {
+        const url = getUrl(`${process.env.NEXT_PUBLIC_BASE_URL}`, params)
+        const res = await fetch(url)
+        return res.json();
     }
 
-    static getRecipeById(id: number) {
-        return this.fetchData(`${this.baseUrl}/${id}`);
+    static async getRecipeById(id: number) {
+        const url = `${process.env.NEXT_PUBLIC_BASE_URL}/${id}`
+        const res = await fetch(url)
+        return res.json();
     }
 
-    static searchRecipes(params?: QueryParamsType) {
-        return this.fetchData(`${this.baseUrl}/search`, params);
+    static async searchRecipes(params: QueryParamsType = {}) {
+        const url = getUrl(`${process.env.NEXT_PUBLIC_BASE_URL}/search`, params)
+        const res = await fetch(url)
+        return res.json();
     }
 
-    static getRecipesByTag(tag: string, params?: QueryParamsType) {
-        return this.fetchData(`${this.baseUrl}/tag/${tag}`, params);
-    }
-    static getTags(params?: QueryParamsType) {
-        return this.fetchData(`${this.baseUrl}/tags`, params);
+    static async getRecipesByTag(tag: string, params: QueryParamsType = {}) {
+        const url = getUrl(`${process.env.NEXT_PUBLIC_BASE_URL}/tag/${tag}`, params);
+        const res = await fetch(url)
+        return res.json();
     }
 
+    static async getTags() {
+        const url = `${process.env.NEXT_PUBLIC_BASE_URL}/tags`
+        const res = await fetch(url)
+        return res.json();
+    }
 
 }
 
