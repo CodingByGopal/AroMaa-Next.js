@@ -38,7 +38,7 @@ export async function generateMetadata(
                 images: [data?.image, ...previousImages],
             },
             alternates: {
-                canonical: `/recipes/${data?.id}`
+                canonical: `/recipes/${params?.id}`
             },
         }
 

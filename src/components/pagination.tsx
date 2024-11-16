@@ -93,9 +93,9 @@ const Pagination = (props: PaginationPropsType) => {
     return (
         <div className=' sm:block flex justify-center items-center gap-4 flex-col'>
             <div className="gap-3 sm:text-base text-sm sm:hidden flex items-center">
-                <label htmlFor='page'>Page</label>
+                <label htmlFor='page-no'>Page</label>
                 <Input
-                    id='page'
+                    id='page-no'
                     className="sm:w-16 w-12 text-center  bg-secondary  border-0 flex-none  "
                     value={pageNumber}
                     min={1}
