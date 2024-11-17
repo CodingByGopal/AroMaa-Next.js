@@ -55,7 +55,7 @@ const RecipesByTagUi = async (props: {
             {recipes?.length === 0 ?
                 <NoData message='No Recipes Found' /> :
                 <>
-                    <div className=" sm:min-h-[500px]">
+                    <div className=" sm:min-h-[500px] min-h-96">
                         <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
                             {recipes?.map((recipe) => (
                                 <div key={recipe.id} >
