@@ -9,7 +9,7 @@ import { Suspense } from "react";
 
 export const revalidate = 604800; // revalidate every 7 days
 
-const foodTags = ['Italian', 'Indian', "Mexican"];
+const foodTags = ['Italian', 'Indian',];
 
 
 export default async function Home() {
