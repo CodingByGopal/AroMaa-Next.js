@@ -39,7 +39,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            shadcn/ui
+                            Shadcn/ui
                         </a>
                     </div>
                 </div>
