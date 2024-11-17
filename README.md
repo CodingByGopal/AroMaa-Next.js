@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AroMaa - Food Recipes App (Next.js 15)
 
-## Getting Started
+**Tech Stack**: Next.js 15, Tailwind CSS, Shadcn/UI, DummyJSON API
 
-First, run the development server:
+AroMaa is a fast, responsive food recipe app utilizing modern web technologies with a focus on performance, accessibility, and SEO.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Key Features:
+- **ISR (Incremental Static Regeneration)**: Pages are pre-rendered at build time, with automatic regeneration for fresh content without full rebuilds.
+- **Streaming**: Progressive data rendering for faster load times and a smoother user experience.
+- **Pagination**: Efficiently handles large recipe collections with paginated data loading.
+- **Server-Side Filtering**: Filters are applied server-side and reflected in the URL, making it easy to share filtered searches and improve SEO.
+- **URL State Management**: Filter and pagination settings are stored in the URL, ensuring users can bookmark or share specific views.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## API:
+- The app uses **[DummyJSON API](https://dummyjson.com/)** for fetching food recipes and related data.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Performance:
+- Check the **Lighthouse Report** below:  
+  ![Lighthouse Score](https://raw.githubusercontent.com/CodingByGopal/imagesAsLink/refs/heads/main/aromaa/aromaa-lighthouse.JPG)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## SEO & Accessibility:
+- Best SEO practices implemented using **Next.js meta tags**, **Open Graph** integration, **dynamic sitemaps**, and **robots.txt** for better indexing and discoverability.
 
-## Learn More
+## Themes:
+- The app supports both **Dark** and **Light** themes for a flexible, user-friendly experience.
 
-To learn more about Next.js, take a look at the following resources:
+## Responsiveness:
+- Fully **mobile-responsive** design, optimized for all screen sizes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Previews:
+Here are some previews of the app's interface in both light and dark themes:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Home Page (Dark Theme)**  
+&nbsp;  
+![Home Dark](https://raw.githubusercontent.com/CodingByGopal/imagesAsLink/refs/heads/main/aromaa/home-dark.png)
 
-## Deploy on Vercel
+### **Home Page (Light Theme)**  
+&nbsp;  
+![Home Light](https://raw.githubusercontent.com/CodingByGopal/imagesAsLink/refs/heads/main/aromaa/home-light.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **Recipes Page (Dark Theme)**  
+&nbsp;  
+![Recipes Dark](https://raw.githubusercontent.com/CodingByGopal/imagesAsLink/refs/heads/main/aromaa/recipes-dark.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **Recipes Page (Light Theme)**  
+&nbsp;  
+![Recipes Light](https://raw.githubusercontent.com/CodingByGopal/imagesAsLink/refs/heads/main/aromaa/recipes-light.png)
+
+### **Recipe Details Page (Dark Theme)**  
+&nbsp;  
+![Details Dark](https://raw.githubusercontent.com/CodingByGopal/imagesAsLink/refs/heads/main/aromaa/details-dark.png)
+
+### **Recipe Details Page (Light Theme)**  
+&nbsp;  
+![Details Light](https://raw.githubusercontent.com/CodingByGopal/imagesAsLink/refs/heads/main/aromaa/details-light.png)
+
+Built with **Next.js 15** for performance, **Tailwind CSS** for responsive design, and **Shadcn/UI** for polished UI components.
