@@ -1,5 +1,4 @@
 
-import React from 'react'
 import { RecipeModel } from '@/data/_model/recipe.model'
 import CustomImg from '@/components/custom-img'
 import Link from 'next/link'

@@ -1,4 +1,3 @@
-import React from 'react'
 
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
 import SectionUi from './section-ui';

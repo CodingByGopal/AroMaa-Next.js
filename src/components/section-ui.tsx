@@ -1,4 +1,4 @@
-import React from 'react'
+
 import RecipeCard from './recipe-card'
 import { RecipeModel } from '@/data/_model/recipe.model'
 import SectionTitle from './section-title'
@@ -17,9 +17,9 @@ const SectionUi = (props: {
 
                 <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
                     {props?.recipes?.map((recipe) => (
-                        <React.Fragment key={recipe.id} >
+                        <div key={recipe.id} >
                             <RecipeCard recipe={recipe} />
-                        </React.Fragment>
+                        </div>
                     ))}
                 </div>
             </div>
