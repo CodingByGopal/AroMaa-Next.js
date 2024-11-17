@@ -1,4 +1,3 @@
-import React from 'react'
 import CustomImg from './custom-img'
 import { RecipeModel } from '@/data/_model/recipe.model'
 import Link from 'next/link'

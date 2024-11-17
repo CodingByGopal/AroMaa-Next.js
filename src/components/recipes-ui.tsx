@@ -3,7 +3,6 @@ import RecipesService from "@/services/recipes.service";
 import NoData from "./no-data";
 import Pagination from "./pagination";
 import RecipeCard from "./recipe-card";
-import React from "react";
 import { QueryParamsType } from "@/data/_model/query.params.type";
 import recipeFilters from "@/data/_static/recipe.filters";
 import { itemsPerPage } from "@/data/_helpers/_utils";
@@ -55,9 +54,9 @@ const RecipesUi = async (props: {
                     <div className=" sm:min-h-[500px]">
                         <div className=" grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
                             {recipes?.map((recipe) => (
-                                <React.Fragment key={recipe.id} >
+                                <div key={recipe.id} >
                                     <RecipeCard recipe={recipe} />
-                                </React.Fragment>
+                                </div>
                             ))}
                         </div>
                     </div>

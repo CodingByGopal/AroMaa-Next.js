@@ -1,4 +1,3 @@
-import React from 'react'
 import { SkeletonCard } from './skeleton-card'
 
 const SkeletonRecipes = (props: {
