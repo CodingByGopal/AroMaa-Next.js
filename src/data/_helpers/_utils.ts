@@ -10,7 +10,7 @@ const extractId = (name: string) => {
     return id ? +id : null;
 };
 
-const itemsPerPage = 12;
+
 
 const getUrl = (baseUrl: string, params: QueryParamsType,) => {
     const queryParams = new URLSearchParams(
@@ -29,6 +29,5 @@ const getUrl = (baseUrl: string, params: QueryParamsType,) => {
 export {
     slugify,
     extractId,
-    itemsPerPage,
     getUrl
 };

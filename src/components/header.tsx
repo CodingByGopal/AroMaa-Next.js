@@ -23,7 +23,7 @@ const navigationOptions: NavigationOptionsModel[] = [
     },
     {
         label: 'Github',
-        path: 'https://github.com/CodingByGopal/aromaa',
+        path: 'https://github.com/CodingByGopal/AroMaa-Next.js',
         icon: <GitFork />,
         target: '_blank',
         rel: "noopener noreferrer"

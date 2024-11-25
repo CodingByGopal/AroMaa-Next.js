@@ -1,4 +1,5 @@
 
+import { domain } from '@/data/_helpers/_constants';
 import { slugify } from '@/data/_helpers/_utils';
 import { RecipeModel } from '@/data/_model/recipe.model';
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model';
@@ -18,7 +19,7 @@ type Sitemap = Array<{
 
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = process.env.NEXT_PUBLIC_DOMAIN ?? "";
+    const baseUrl = domain ?? "";
     const urls = [
         `${baseUrl}`,
         `${baseUrl}/recipes`,

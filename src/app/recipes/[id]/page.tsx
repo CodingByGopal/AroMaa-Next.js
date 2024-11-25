@@ -5,9 +5,10 @@ import Link from 'next/link'
 import { buttonVariants } from '@/components/ui/button'
 import type { Metadata, ResolvingMetadata } from 'next'
 import NoData from '@/components/no-data'
-import { extractId, itemsPerPage, slugify } from '@/data/_helpers/_utils'
+import { extractId, slugify } from '@/data/_helpers/_utils'
 import RecipesService from '@/services/recipes.service'
 import { RecipeResponseModel } from '@/data/_model/recipe.response.model'
+import { itemsPerPage } from '@/data/_helpers/_constants'
 
 
 type Params = Promise<{ id: string }>

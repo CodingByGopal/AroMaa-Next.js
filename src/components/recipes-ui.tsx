@@ -5,7 +5,8 @@ import Pagination from "./pagination";
 import RecipeCard from "./recipe-card";
 import { QueryParamsType } from "@/data/_model/query.params.type";
 import recipeFilters from "@/data/_static/recipe.filters";
-import { itemsPerPage } from "@/data/_helpers/_utils";
+import { itemsPerPage } from "@/data/_helpers/_constants";
+
 
 const RecipesUi = async (props: {
     searchParams: QueryParamsType

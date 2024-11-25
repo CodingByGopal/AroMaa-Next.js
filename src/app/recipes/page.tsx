@@ -7,7 +7,7 @@ import { SearchParamsType } from '@/data/_model/searchparams.type';
 import recipeFilters from '@/data/_static/recipe.filters';
 import React, { Suspense } from 'react'
 import type { Metadata } from "next";
-import { itemsPerPage } from '@/data/_helpers/_utils';
+import { itemsPerPage } from '@/data/_helpers/_constants';
 export const metadata: Metadata = {
     title: 'Recipes',
     description: "Discover a variety of delicious recipes, search by ingredients, and sort by your favorite filters.",

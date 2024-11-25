@@ -1,3 +1,4 @@
+import { domain } from '@/data/_helpers/_constants'
 import type { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: ['/'],
         }],
-        sitemap: `${process.env.NEXT_PUBLIC_DOMAIN}/sitemap.xml`,
+        sitemap: `${domain}/sitemap.xml`,
     }
 }
