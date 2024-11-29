@@ -9,6 +9,7 @@ const CustomImg = (props: { src: string; alt: string }) => {
 
     return (
         <Image
+            quality={20}
             src={hasError ? '/image-placeholder.svg' : props?.src}
             alt={props?.alt}
             fill
