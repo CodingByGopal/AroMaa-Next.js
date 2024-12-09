@@ -37,7 +37,7 @@ const MobileMenu = (props: {
 
 
                     {props?.navigationOptions?.map((item, i) => {
-                        return <Link key={i} rel={item?.rel} target={item?.target} href={item?.path} onClick={() => setOpen(false)}
+                        return <Link prefetch={false} key={i} rel={item?.rel} target={item?.target} href={item?.path} onClick={() => setOpen(false)}
                             className={`  flex items-center gap-3 transition-all duration-300 px-6 py-3 
                                  ${props?.pathName === item.path ? " bg-accent/60" :
                                     " hover:bg-accent/60"} `} >

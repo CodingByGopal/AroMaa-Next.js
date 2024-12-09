@@ -23,6 +23,7 @@ export default function NotFound() {
 
                     <p className=' text-sm text-foreground/80  mb-4'>Could not find requested resource</p>
                     <Link
+                        prefetch={false}
                         className={buttonVariants({ variant: "default" })}
                         href="/">
                         Return Home
