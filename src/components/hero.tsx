@@ -18,12 +18,12 @@ const Hero = () => {
 
                         </p>
                         <div className=" flex sm:flex-row flex-col  sm:items-center sm:gap-4 gap-3 sm:justify-center ">
-                            <Link href="/recipes" className={buttonVariants({ variant: 'default', })}>
+                            <Link prefetch={false} href="/recipes" className={buttonVariants({ variant: 'default', })}>
                                 Get Cooking
                                 <ArrowRight />
                             </Link>
 
-                            <Link href="/#trending" className={buttonVariants({ variant: 'secondary' })}>
+                            <Link prefetch={false} href="/#trending" className={buttonVariants({ variant: 'secondary' })}>
                                 View More
                             </Link>
 

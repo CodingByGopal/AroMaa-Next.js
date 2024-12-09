@@ -57,7 +57,7 @@ const Header = () => {
                         <Logo />
                         <nav className=" border-l-2 border-border pl-6 hidden md:flex items-center gap-5 font-semibold text-base">
                             {navigationOptions.map((navOption, index) => (
-                                <Link className={`${pathname === navOption?.path ? 'bottom-line' : " "} 
+                                <Link prefetch={false} className={`${pathname === navOption?.path ? 'bottom-line' : " "} 
                                    duration-300 transition-all `} rel={navOption?.rel} target={navOption?.target} href={navOption?.path} key={index}>
                                     {navOption?.label}
                                 </Link>

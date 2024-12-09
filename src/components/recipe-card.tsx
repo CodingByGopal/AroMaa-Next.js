@@ -11,7 +11,7 @@ const RecipeCard = (props: {
     const recipe = props?.recipe;
     const name = recipe?.name?.length > 30 ? `${recipe?.name?.slice(0, 30)}...` : recipe?.name;
     return (
-        <Link href={`/recipes/${slugify(recipe.name)}-${recipe.id}`} className="relative  cursor-pointer">
+        <Link prefetch={false} href={`/recipes/${slugify(recipe.name)}-${recipe.id}`} className="relative  cursor-pointer">
             <div className="w-full h-48 relative [&>img]:hover:scale-110 [&>img]:transition-all [&>img]:duration-500  overflow-hidden rounded-lg ">
                 <CustomImg src={recipe?.image} alt={`Image of ${recipe?.name}`} />
             </div>

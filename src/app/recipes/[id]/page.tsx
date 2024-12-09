@@ -97,6 +97,7 @@ const RecipeDetails = async (props: {
                                         {(data?.tags && data?.tags?.length > 0) ?
                                             <div className=' flex flex-wrap gap-2  md:mt-6 mt-0  items-center'>
                                                 {data?.tags?.map(tag => <Link
+                                                    prefetch={false}
                                                     className={buttonVariants({ variant: "outline", size: "sm", className: " text-foreground/80 bg-secondary" })}
                                                     href={`/tag/${tag}`} key={tag}>
                                                     {tag}
